@@ -1,0 +1,55 @@
+log = "log/"
+
+[Data Information]
+original_trainingDir = "data/Original/Training/"
+original_testingDir = "data/Original/Test/"
+metaDataPath = "data/metaInfos/"
+textDescriptionPath = "data/textDescriptions/"
+textEncodingPath = "data/textEncodings/"
+
+[Plot Information]
+plotDir = "Outputs/plots/"
+
+[Pre-Processing]
+useNormalisation = "True"                         # Normalisation
+out_dir = "data/generatedData/slidingAugNormal/"         # Output for Sliding Window Augmentation
+augmented_dir = "data/generatedData/augmentated/"              # Output for Augmentation
+
+tileHeight = 800                                # Sliding Window height
+tileWidth = 800                                 # Sliding Window Width
+slidingSize = 50                                # Slide Skipping size
+augmentPerImage = 100                           # Number of augmentation to perform per image that was generated using sliding down
+finalTileHeight = 256                           # Final Height of augmenated image
+finalTileWidth = 256                            # Final Width of augmenated image
+
+splitRatio = 0.7                                # 0.8 -> 80% training 20% validation
+trainDataset = "/home/blue/projects/TexVizSeg/data/trainNormal/"                    # Images to be during Training
+valDataset = "/home/blue/projects/TexVizSeg/data/valNormal/"                        # Images to used during Validation
+testDataset = "/home/blue/projects/TexVizSeg/data/testNormal/"                      # Images to used during Testing
+
+[Class Config]
+class1 = "0, 0, 0"                              #black
+class2 = "255, 255, 255"                        #white  
+
+
+
+[Training]
+debug = "True"                                 # Debug Mode - True or False: Radically reduces the dataset size for faster training
+trainingDilution =  1000                           # Debug Dilution - number of images to use while training in debug mode
+validationDilution = 100                           # Debug Dilution - number of images to use while validation in debug mode
+BaseModel = "UNet3Plus"                                # UNet3Plus 
+
+
+[Parameters]
+input_img_type = "rgb"                          # Input Image Type: rgb, gray
+epochs = 1
+batch_size = 8
+channel = 32
+kernel_size = 3
+learning_rate = 0.000001                         # can be set to "auto" for finding the best learning rate or set to 0.00001
+lr_decay = "False"                             # Learning Rate Decay  - True or False
+num_classes = 2
+activation = "relu"                             # Activations available: relu, GLU
+loss = "weighteddice"                           
+dropout = 0.3
+use_maxblurpool = "False"                       # Use MaxBlurPool - True or False
