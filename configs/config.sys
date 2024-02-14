@@ -23,8 +23,8 @@ finalTileHeight = 256                           # Final Height of augmenated ima
 finalTileWidth = 256                            # Final Width of augmenated image
 
 splitRatio = 0.7                                # 0.8 -> 80% training 20% validation
-trainDataset = "/home/blue/projects/TexVizSeg/data/trainNormal/"                    # Images to be during Training
-valDataset = "/home/blue/projects/TexVizSeg/data/valNormal/"                        # Images to used during Validation
+trainDataset = "/home/blue/projects/TexVizSeg/data/trainNormal1/"                    # Images to be during Training
+valDataset = "/home/blue/projects/TexVizSeg/data/valNormal1/"                        # Images to used during Validation
 testDataset = "/home/blue/projects/TexVizSeg/data/testNormal/"                      # Images to used during Testing
 
 [Class Config]
@@ -50,6 +50,6 @@ learning_rate = 0.000001                         # can be set to "auto" for find
 lr_decay = "False"                             # Learning Rate Decay  - True or False
 num_classes = 2
 activation = "relu"                             # Activations available: relu, GLU
-loss = "weighteddice"                           
+loss = "focaldice"                           # weighteddice, focaldice
 dropout = 0.3
 use_maxblurpool = "False"                       # Use MaxBlurPool - True or False

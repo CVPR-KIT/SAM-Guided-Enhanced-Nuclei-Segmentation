@@ -66,7 +66,7 @@ def run_epoch_pipeline(model, data_loader, criterion, optimizer, epoch, device, 
     ious = []
     accs = []
 
-    for idx, (image, label) in enumerate(tqdm(data_loader, desc=f"Epoch {epoch}/{config['epochs']}")):
+    for idx, (image, label, enc) in enumerate(tqdm(data_loader, desc=f"Epoch {epoch}/{config['epochs']}")):
         image, label = image.to(device), label.to(device)
         
 
@@ -195,8 +195,13 @@ def main():
     
 
         
-
-    criterion = weightedDiceLoss()
+    if config["loss"] =="weighteddice":
+        criterion = weightedDiceLoss()
+    elif config["loss"] =="focaldice":
+        criterion = focalDiceLoss()
+    else:
+        print("loss not found. Using default loss: weightedDiceLoss()")
+        criterion = weightedDiceLoss()
     optimizer = torch.optim.Adam(model.parameters(),lr=learning_rate, weight_decay=1e-5)
 
 

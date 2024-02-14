@@ -26,7 +26,7 @@ class nucleiDataset(Dataset):
         if self.debug:
             return self.debugDilution
         else:
-            return len(os.listdir(self.img_dir))//3 -1
+            return len(os.listdir(self.img_dir))//4 -1
 
     def __getitem__(self, index):
         try:
@@ -37,7 +37,12 @@ class nucleiDataset(Dataset):
         try:
             label = cv2.imread(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'),cv2.IMREAD_GRAYSCALE)
         except:
-            print(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'))   
+            print(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'))  
+
+        try:
+            samencoding = torch.load(os.path.join(self.img_dir,str(index)+'_en.pt'))   
+        except:
+            print(os.path.join(self.img_dir,str(index)+'.pt'))
         
         if self.config["input_img_type"] == "rgb":
             image = np.transpose(image, (2, 0, 1))
@@ -53,7 +58,8 @@ class nucleiDataset(Dataset):
 
         label = np.stack([class_0, class_1], axis=0)
 
-        return torch.Tensor(image),torch.LongTensor(label)
+
+        return torch.Tensor(image),torch.LongTensor(label), samencoding
 
 class nucleiValDataset(Dataset):
     def __init__(self, img_dir, config = None):
@@ -72,7 +78,7 @@ class nucleiValDataset(Dataset):
         if self.debug:
             return self.debugDilution
         else:
-            return len(os.listdir(self.img_dir))//3-1
+            return len(os.listdir(self.img_dir))//4 - 1
 
 
     def __getitem__(self, index):
@@ -86,6 +92,11 @@ class nucleiValDataset(Dataset):
         else:
             image = np.reshape(image,(1,image.shape[0],image.shape[1]))
         
+        try:
+            samencoding = torch.load(os.path.join(self.img_dir,str(index)+'_en.pt'))   
+        except:
+            print(os.path.join(self.img_dir,str(index)+'.pt'))
+        
         label = cv2.imread(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'),cv2.IMREAD_GRAYSCALE)
         label[label==255] = 1
         label[label==0] = 0
@@ -96,7 +107,7 @@ class nucleiValDataset(Dataset):
         label = np.stack([class_0, class_1], axis=0)
 
 
-        return torch.Tensor(image),torch.LongTensor(label)
+        return torch.Tensor(image),torch.LongTensor(label), samencoding
 
 
 class nucleiTestDataset(Dataset):
