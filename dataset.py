@@ -57,6 +57,7 @@ class nucleiDataset(Dataset):
         class_1 = np.where(label == 1, 1, 0)  # Channel for class 1
 
         label = np.stack([class_0, class_1], axis=0)
+        #print(samencoding.shape)
 
 
         return torch.Tensor(image),torch.LongTensor(label), samencoding

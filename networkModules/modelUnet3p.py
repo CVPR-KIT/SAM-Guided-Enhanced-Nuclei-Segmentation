@@ -25,6 +25,7 @@ class UNet_3Plus(nn.Module):
         self.useMaxBPool = config["use_maxblurpool"]
 
         self.samGuided = config["SAM_Guided"]
+        self.reduction_ratio = 16
 
         self.dropoutFlag = False
 
@@ -59,6 +60,24 @@ class UNet_3Plus(nn.Module):
             self.maxpool4 = nn.MaxPool2d(kernel_size=2)
 
         self.conv5 = unetConv2(filters[3], filters[4], self.is_batchnorm, ks=self.kernel_size)
+
+        self.samMaxPool = MaxBlurPool2d(kernel_size=2)
+
+
+        self.unet_channels = filters[4]
+        self.fused_channels = self.unet_channels + 256
+
+        self.squeeze_excite = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1),
+            nn.Conv2d(self.fused_channels, self.fused_channels // self.reduction_ratio, kernel_size=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(self.fused_channels // self.reduction_ratio, self.unet_channels, kernel_size=1),  # Output channels for gating
+            nn.Sigmoid()  # Gating mechanism
+        )
+
+
+        self.cross_attention = nn.MultiheadAttention(embed_dim=self.unet_channels, num_heads=1, batch_first=True)
+
 
         ## -------------Decoder--------------
         self.CatChannels = filters[0]
@@ -244,13 +263,40 @@ class UNet_3Plus(nn.Module):
 
         #return h1, h2, h3, h4, hd5
 
-        print(h5.shape)
-        print(SAM_Enc.shape)
-        # concat shapes of 1, 256, 16, 16 with 1, 256, 64, 64
-        combined = torch.cat((h5, SAM_Enc), 0)
-        print(combined.shape)
+        '''print("h1", h1.shape)
+        print("h2", h2.shape)
+        print("h3", h3.shape)
+        print("h4", h4.shape)
+        print("hd5", hd5.shape)'''
+        #print("SAM_Enc", SAM_Enc.shape)
 
-        sys.exit(0)
+        samcd = self.samMaxPool(SAM_Enc)
+        samcd = self.samMaxPool(samcd)
+        #print("SAM_cd", samcd.shape)
+        # concat shapes of 1, 256, 16, 16 with 1, 256, 64, 64
+        combined = torch.cat((hd5, samcd), 1)
+        #print("Combined=",combined.shape)
+
+        gatingWeights = self.squeeze_excite(combined)
+        #print("GatingWeights=",gatingWeights.shape)
+
+        gatedFeatures = gatingWeights * hd5
+        #print("GatedFeatures=",gatedFeatures.shape)
+
+        batch_size, channels, height, width = hd5.shape
+        gated_unet_features_flat = hd5.view(batch_size, channels, -1).permute(0, 2, 1)
+        unet_features_flat = hd5.view(batch_size, channels, -1).permute(0, 2, 1)
+
+        # Apply cross-attention
+        attention_output, _ = self.cross_attention(query=gated_unet_features_flat, key=unet_features_flat, value=unet_features_flat)
+        attention_output = attention_output.permute(0, 2, 1).view(batch_size, channels, height, width)
+
+        #print("AttentionOutput=",attention_output.shape)
+
+
+
+        #sys.exit(0)
+        hd5 = attention_output
 
 
 
