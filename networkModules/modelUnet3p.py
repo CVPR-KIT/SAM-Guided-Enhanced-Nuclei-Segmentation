@@ -2,7 +2,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from networkModules.conv_modules_unet3p import unetConv2, BlurPool2D, MaxBlurPool2d
+from networkModules.conv_modules_unet3p import unetConv2, BlurPool2D, MaxBlurPool2d, SEBlock
 from networkModules.init_weights import init_weights
 '''
     UNet 3+
@@ -22,6 +22,7 @@ class UNet_3Plus(nn.Module):
         n_classes = config["num_classes"]
         self.dropout = nn.Dropout2d(p=config["dropout"])
         self.useMaxBPool = config["use_maxblurpool"]
+        self.samGuided = config["SAM_Guided"]
 
         self.dropoutFlag = False
 
@@ -31,31 +32,67 @@ class UNet_3Plus(nn.Module):
         #filters = [64, 128, 256, 512, 1024]
 
         ## -------------Encoder--------------
-        self.conv1 = unetConv2(self.in_channels, filters[0], self.is_batchnorm, ks=self.kernel_size)
+        if self.samGuided:
+            self.conv1 = nn.Sequential(
+                unetConv2(self.in_channels, filters[0], self.is_batchnorm, ks=self.kernel_size),
+                SEBlock(channel=filters[0])
+            )
+        else:
+            self.conv1 = unetConv2(self.in_channels, filters[0], self.is_batchnorm, ks=self.kernel_size)
+
         if self.useMaxBPool:
             self.maxpool1 = MaxBlurPool2d(kernel_size=2)
         else:
             self.maxpool1 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv2 = unetConv2(filters[0], filters[1], self.is_batchnorm, ks=self.kernel_size)
+        
+        if self.samGuided:
+            self.conv2 = nn.Sequential(
+                unetConv2(filters[0], filters[1], self.is_batchnorm, ks=self.kernel_size),
+                SEBlock(channel=filters[1])
+            )
+        else:
+            self.conv2 = unetConv2(filters[0], filters[1], self.is_batchnorm, ks=self.kernel_size)
+       
         if self.useMaxBPool:
             self.maxpool2 = MaxBlurPool2d(kernel_size=2)
         else:
             self.maxpool2 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv3 = unetConv2(filters[1], filters[2], self.is_batchnorm, ks=self.kernel_size)
+        
+        if self.samGuided:
+            self.conv3 = nn.Sequential(
+                unetConv2(filters[1], filters[2], self.is_batchnorm, ks=self.kernel_size),
+                SEBlock(channel=filters[2])
+            )
+        else:
+            self.conv3 = unetConv2(filters[1], filters[2], self.is_batchnorm, ks=self.kernel_size)
+        
         if self.useMaxBPool:
             self.maxpool3 = MaxBlurPool2d(kernel_size=2)    
         else:
             self.maxpool3 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv4 = unetConv2(filters[2], filters[3], self.is_batchnorm, ks=self.kernel_size)
+        if self.samGuided:
+            self.conv4 = nn.Sequential(
+                unetConv2(filters[2], filters[3], self.is_batchnorm, ks=self.kernel_size),
+                SEBlock(channel=filters[3])
+            )
+        else:
+            self.conv4 = unetConv2(filters[2], filters[3], self.is_batchnorm, ks=self.kernel_size)
+
         if self.useMaxBPool:
             self.maxpool4 = MaxBlurPool2d(kernel_size=2)
         else:
             self.maxpool4 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv5 = unetConv2(filters[3], filters[4], self.is_batchnorm, ks=self.kernel_size)
+        if self.samGuided:
+            self.conv5 = nn.Sequential(
+                unetConv2(filters[3], filters[4], self.is_batchnorm, ks=self.kernel_size),
+                SEBlock(channel=filters[4])
+            )
+        else:
+            self.conv5 = unetConv2(filters[3], filters[4], self.is_batchnorm, ks=self.kernel_size)
 
         ## -------------Decoder--------------
         self.CatChannels = filters[0]
@@ -217,8 +254,11 @@ class UNet_3Plus(nn.Module):
         self.dropoutFlag = flag
 
     def forward(self, inputs):
+
+        input, SAM_Enc = inputs
+
         ## -------------Encoder-------------
-        h1 = self.conv1(inputs)  # h1->320*320*64
+        h1 = self.conv1(input)  # h1->320*320*64
 
         h2 = self.maxpool1(h1)
         h2 = self.conv2(h2)  # h2->160*160*128

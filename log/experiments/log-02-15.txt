@@ -1,0 +1,49 @@
+wandb: Currently logged in as: bluesaiyancodes. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.16.3
+wandb: Run data is saved locally in /home/bishal/projects/SAM-Guided-U-Net/wandb/run-20240215_052345-mpi4eh08
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run kind-crush-2
+wandb: ⭐️ View project at https://wandb.ai/bluesaiyancodes/samGuided
+wandb: 🚀 View run at https://wandb.ai/bluesaiyancodes/samGuided/runs/mpi4eh08
+Directory log/ already exists
+PreRun: Creating required directories
+Directory Outputs/ already exists
+Directory Outputs/Experiments/ already exists
+Directory log/ already exists
+PreRun: generating experiment config file
+Using cuda device
+Setting pipilines
+loading encoding model
+loading UNet3Plus
+configuring data loaders
+logging parameters
+starting training
+Epoch 0/1:   0%|          | 0/125 [00:00<?, ?it/s][ WARN:0@5.879] global loadsave.cpp:248 findDecoder imread_('/home/blue/projects/TexVizSeg/data/trainNormal1/531.png'): can't open/read file: check file path/integrity
+[ WARN:0@5.879] global loadsave.cpp:248 findDecoder imread_('/home/blue/projects/TexVizSeg/data/trainNormal1/532_label.png'): can't open/read file: check file path/integrity
+Epoch 0/1:   0%|          | 0/125 [00:00<?, ?it/s]
+/home/blue/projects/TexVizSeg/data/trainNormal1/531.png
+/home/blue/projects/TexVizSeg/data/trainNormal1/531.pt
+Traceback (most recent call last):
+  File "/home/bishal/projects/SAM-Guided-U-Net/main.py", line 434, in <module>
+    main()
+  File "/home/bishal/projects/SAM-Guided-U-Net/main.py", line 253, in main
+    train_loss ,train_confusion_matrix, train_mIoU,train_accuracy =  run_epoch_pipeline(model, train_data, criterion, optimizer, epoch, device, 'train',config)
+  File "/home/bishal/projects/SAM-Guided-U-Net/main.py", line 74, in run_epoch_pipeline
+    for idx, (image, label, enc) in enumerate(tqdm(data_loader, desc=f"Epoch {epoch}/{config['epochs']}")):
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/bishal/projects/SAM-Guided-U-Net/dataset.py", line 48, in __getitem__
+    image = np.transpose(image, (2, 0, 1))
+UnboundLocalError: local variable 'image' referenced before assignment
+wandb: - 0.008 MB of 0.008 MB uploadedwandb: \ 0.008 MB of 0.011 MB uploadedwandb: | 0.013 MB of 0.013 MB uploadedwandb: 🚀 View run kind-crush-2 at: https://wandb.ai/bluesaiyancodes/samGuided/runs/mpi4eh08
+wandb: ️⚡ View job at https://wandb.ai/bluesaiyancodes/samGuided/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjEzOTg1NTg2OA==/version_details/v0
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240215_052345-mpi4eh08/logs

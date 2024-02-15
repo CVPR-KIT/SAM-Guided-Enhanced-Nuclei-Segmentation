@@ -14,12 +14,17 @@ import os
 import time
 from datetime import datetime
 import logging
+import wandb
 
 from networkModules.modelUnet3p import UNet_3Plus
 
 from auxilary.utils import *
 from auxilary.lossFunctions import *
 
+
+def wandb_init(config):
+    # Initialize wandb
+    wandb.init(project="samGuided", config=config)
 
 
 def make_preRunNecessities(config):
@@ -67,7 +72,7 @@ def run_epoch_pipeline(model, data_loader, criterion, optimizer, epoch, device, 
     accs = []
 
     for idx, (image, label, enc) in enumerate(tqdm(data_loader, desc=f"Epoch {epoch}/{config['epochs']}")):
-        image, label = image.to(device), label.to(device)
+        image, label, enc = image.to(device), label.to(device), enc.to(device)
         
 
         gt = label.squeeze() if mode == 'train' else torch.reshape(label, (1, config["num_classes"], image.shape[2], image.shape[3]))
@@ -80,7 +85,7 @@ def run_epoch_pipeline(model, data_loader, criterion, optimizer, epoch, device, 
         gt = gt.float()
 
         
-        outputs = model(image)
+        outputs = model((image, enc))
 
         loss = criterion(outputs, gt)
 
@@ -148,6 +153,10 @@ def main():
                         level=logging.INFO, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
     logging.info("\n\n#################### New Run ####################")
     #logging.basicConfig(level=logging.CRITICAL)
+
+
+    if config["logWandb"]:
+        wandb_init(config)
 
 
 
@@ -265,6 +274,9 @@ def main():
         #logging.info('val_mIoU:',val_mIoU)
         print('val_accuracy:',val_accuracy)
         #logging.info('val_accuracy:',val_accuracy)
+
+        if config["logWandb"]:
+            wandb.log({"train_loss": train_loss, "train_accuracy": train_accuracy, "train_mIoU": train_mIoU, "val_loss": val_loss, "val_accuracy": val_accuracy, "val_mIoU": val_mIoU})
         
 
         save_interval = 5  # Save every 5 epochs

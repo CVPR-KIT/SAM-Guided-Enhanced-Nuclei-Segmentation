@@ -2,7 +2,7 @@ import os
 import sys
 import json
 import numpy as np
-from torchsummary import summary
+from torchinfo import summary
 from sklearn.metrics import confusion_matrix
 
 # Create directory

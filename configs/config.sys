@@ -23,9 +23,9 @@ finalTileHeight = 256                           # Final Height of augmenated ima
 finalTileWidth = 256                            # Final Width of augmenated image
 
 splitRatio = 0.7                                # 0.8 -> 80% training 20% validation
-trainDataset = "/home/blue/projects/TexVizSeg/data/trainNormal1/"                    # Images to be during Training
-valDataset = "/home/blue/projects/TexVizSeg/data/valNormal1/"                        # Images to used during Validation
-testDataset = "/home/blue/projects/TexVizSeg/data/testNormal/"                      # Images to used during Testing
+trainDataset = "/mnt/BishalFiles/Datasets/MoNuSeg/wEncodings/trainNormal1/"                    # Images to be during Training
+valDataset = "/mnt/BishalFiles/Datasets/MoNuSeg/wEncodings/valNormal1/"                        # Images to used during Validation
+testDataset = "/mnt/BishalFiles/Datasets/MoNuSeg/wEncodings/testNormal/"                      # Images to used during Testing
 
 [Class Config]
 class1 = "0, 0, 0"                              #black
@@ -34,11 +34,12 @@ class2 = "255, 255, 255"                        #white
 
 
 [Training]
+logWandb = "True"                              # Log to Wandb - True or False
 debug = "True"                                 # Debug Mode - True or False: Radically reduces the dataset size for faster training
 trainingDilution =  1000                           # Debug Dilution - number of images to use while training in debug mode
 validationDilution = 100                           # Debug Dilution - number of images to use while validation in debug mode
 BaseModel = "UNet3Plus"                                # UNet3Plus 
-
+SAM_Guided = "False"                             # SAM Guided - True or False
 
 [Parameters]
 input_img_type = "rgb"                          # Input Image Type: rgb, gray
