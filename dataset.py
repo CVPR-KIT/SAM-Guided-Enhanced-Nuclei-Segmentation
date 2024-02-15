@@ -127,22 +127,26 @@ class nucleiTestDataset(Dataset):
         return 
     
     def __len__(self):
-        return len(os.listdir(self.img_dir))//2
+        return len(os.listdir(self.img_dir))//3
 
     def __getitem__(self, index):
 
-        img_paths  = sorted(os.listdir(self.img_dir))
         if self.config["input_img_type"] == "rgb":
-            image = cv2.imread(os.path.join(self.img_dir,str(index)+img_paths[0][-4:]))/255
+            image = cv2.imread(os.path.join(self.img_dir,str(index)+".png"))/255
             
             # Normalize image
             #image = normalize_image(image)
         else:
-            image = cv2.imread(os.path.join(self.img_dir,str(index)+img_paths[0][-4:]),cv2.IMREAD_GRAYSCALE)/255
+            image = cv2.imread(os.path.join(self.img_dir,str(index)+".png"),cv2.IMREAD_GRAYSCALE)/255
             image = np.reshape(image,(1,image.shape[0],image.shape[1]))
         
 
-        label = cv2.imread(os.path.join(self.img_dir,str(index)+'_label'+img_paths[1][-4:]),cv2.IMREAD_GRAYSCALE)
+        label = cv2.imread(os.path.join(self.img_dir,str(index)+"_label.png"),cv2.IMREAD_GRAYSCALE)
+
+        try:
+            samencoding = torch.load(os.path.join(self.img_dir,str(index)+'_en.pt'))   
+        except:
+            print(os.path.join(self.img_dir,str(index)+'_en.pt'))
 
         self.wid = image.shape[0]
         self.hit = image.shape[1]
@@ -163,5 +167,5 @@ class nucleiTestDataset(Dataset):
         
         image = np.transpose(image, (2, 0, 1))
 
-        return torch.Tensor(image),torch.LongTensor(label)
+        return torch.Tensor(image),torch.LongTensor(label), samencoding
     

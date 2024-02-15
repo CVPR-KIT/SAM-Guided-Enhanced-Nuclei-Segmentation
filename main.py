@@ -314,8 +314,9 @@ def main():
     ious = []
     accs = []
     dices = []
-    for batch_idx, (images,label) in pgbar:       
-            pred = model(images.to(device))
+    for batch_idx, (images,label, enc) in pgbar:       
+            pred = model((images.to(device), enc.to(device)))
+            
 
             gt = label.to(device)
 

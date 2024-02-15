@@ -35,16 +35,16 @@ class2 = "255, 255, 255"                        #white
 
 [Training]
 logWandb = "True"                              # Log to Wandb - True or False
-debug = "True"                                 # Debug Mode - True or False: Radically reduces the dataset size for faster training
+debug = "False"                                 # Debug Mode - True or False: Radically reduces the dataset size for faster training
 trainingDilution =  1000                           # Debug Dilution - number of images to use while training in debug mode
 validationDilution = 100                           # Debug Dilution - number of images to use while validation in debug mode
 BaseModel = "UNet3Plus"                                # UNet3Plus 
-SAM_Guided = "False"                             # SAM Guided - True or False
+SAM_Guided = "True"                             # SAM Guided - True or False
 
 [Parameters]
 input_img_type = "rgb"                          # Input Image Type: rgb, gray
-epochs = 1
-batch_size = 8
+epochs = 50
+batch_size = 16
 channel = 32
 kernel_size = 3
 learning_rate = 0.000001                         # can be set to "auto" for finding the best learning rate or set to 0.00001
@@ -53,4 +53,4 @@ num_classes = 2
 activation = "relu"                             # Activations available: relu, GLU
 loss = "focaldice"                           # weighteddice, focaldice
 dropout = 0.3
-use_maxblurpool = "False"                       # Use MaxBlurPool - True or False
+use_maxblurpool = "True"                       # Use MaxBlurPool - True or False

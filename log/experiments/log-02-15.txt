@@ -1,10 +1,10 @@
 wandb: Currently logged in as: bluesaiyancodes. Use `wandb login --relogin` to force relogin
 wandb: Tracking run with wandb version 0.16.3
-wandb: Run data is saved locally in /home/bishal/projects/SAM-Guided-U-Net/wandb/run-20240215_052345-mpi4eh08
+wandb: Run data is saved locally in /home/bishal/projects/SAM-Guided-U-Net/wandb/run-20240215_052739-0rul6ead
 wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run kind-crush-2
+wandb: Syncing run evanescent-flower-3
 wandb: ⭐️ View project at https://wandb.ai/bluesaiyancodes/samGuided
-wandb: 🚀 View run at https://wandb.ai/bluesaiyancodes/samGuided/runs/mpi4eh08
+wandb: 🚀 View run at https://wandb.ai/bluesaiyancodes/samGuided/runs/0rul6ead
 Directory log/ already exists
 PreRun: Creating required directories
 Directory Outputs/ already exists
@@ -18,32 +18,47 @@ loading UNet3Plus
 configuring data loaders
 logging parameters
 starting training
-Epoch 0/1:   0%|          | 0/125 [00:00<?, ?it/s][ WARN:0@5.879] global loadsave.cpp:248 findDecoder imread_('/home/blue/projects/TexVizSeg/data/trainNormal1/531.png'): can't open/read file: check file path/integrity
-[ WARN:0@5.879] global loadsave.cpp:248 findDecoder imread_('/home/blue/projects/TexVizSeg/data/trainNormal1/532_label.png'): can't open/read file: check file path/integrity
-Epoch 0/1:   0%|          | 0/125 [00:00<?, ?it/s]
-/home/blue/projects/TexVizSeg/data/trainNormal1/531.png
-/home/blue/projects/TexVizSeg/data/trainNormal1/531.pt
-Traceback (most recent call last):
+Epoch 0/1:   0%|          | 0/125 [00:00<?, ?it/s]Epoch 0/1:   1%|          | 1/125 [00:01<02:25,  1.17s/it]Epoch 0/1:   2%|▏         | 2/125 [00:01<01:54,  1.08it/s]Epoch 0/1:   2%|▏         | 3/125 [00:02<01:46,  1.14it/s]Epoch 0/1:   3%|▎         | 4/125 [00:03<01:36,  1.25it/s]Epoch 0/1:   4%|▍         | 5/125 [00:04<01:29,  1.34it/s]Epoch 0/1:   5%|▍         | 6/125 [00:04<01:23,  1.42it/s]Epoch 0/1:   6%|▌         | 7/125 [00:05<01:20,  1.46it/s]Epoch 0/1:   6%|▋         | 8/125 [00:05<01:18,  1.48it/s]Epoch 0/1:   7%|▋         | 9/125 [00:06<01:18,  1.47it/s]Epoch 0/1:   8%|▊         | 10/125 [00:07<01:16,  1.50it/s]Epoch 0/1:   9%|▉         | 11/125 [00:08<01:17,  1.47it/s]Epoch 0/1:  10%|▉         | 12/125 [00:08<01:17,  1.46it/s]Epoch 0/1:  10%|█         | 13/125 [00:09<01:16,  1.46it/s]Epoch 0/1:  11%|█         | 14/125 [00:10<01:16,  1.45it/s]Epoch 0/1:  12%|█▏        | 15/125 [00:10<01:15,  1.46it/s]Epoch 0/1:  13%|█▎        | 16/125 [00:11<01:13,  1.49it/s]Epoch 0/1:  14%|█▎        | 17/125 [00:12<01:13,  1.48it/s]Epoch 0/1:  14%|█▍        | 18/125 [00:12<01:12,  1.47it/s]Epoch 0/1:  15%|█▌        | 19/125 [00:13<01:14,  1.43it/s]Epoch 0/1:  16%|█▌        | 20/125 [00:14<01:13,  1.43it/s]Epoch 0/1:  17%|█▋        | 21/125 [00:14<01:10,  1.48it/s]Epoch 0/1:  18%|█▊        | 22/125 [00:15<01:12,  1.43it/s]Epoch 0/1:  18%|█▊        | 23/125 [00:16<01:08,  1.49it/s]Epoch 0/1:  19%|█▉        | 24/125 [00:16<01:08,  1.48it/s]Epoch 0/1:  20%|██        | 25/125 [00:17<01:10,  1.42it/s]Epoch 0/1:  21%|██        | 26/125 [00:18<01:07,  1.46it/s]Epoch 0/1:  22%|██▏       | 27/125 [00:18<01:06,  1.48it/s]Epoch 0/1:  22%|██▏       | 28/125 [00:19<01:08,  1.42it/s]Epoch 0/1:  23%|██▎       | 29/125 [00:20<01:04,  1.49it/s]Epoch 0/1:  24%|██▍       | 30/125 [00:20<01:02,  1.52it/s]Epoch 0/1:  25%|██▍       | 31/125 [00:21<01:04,  1.45it/s]Epoch 0/1:  26%|██▌       | 32/125 [00:22<01:04,  1.45it/s]Epoch 0/1:  26%|██▋       | 33/125 [00:23<01:04,  1.42it/s]Epoch 0/1:  27%|██▋       | 34/125 [00:23<01:04,  1.41it/s]Epoch 0/1:  28%|██▊       | 35/125 [00:24<01:04,  1.39it/s]Epoch 0/1:  29%|██▉       | 36/125 [00:25<01:02,  1.42it/s]Epoch 0/1:  30%|██▉       | 37/125 [00:25<01:01,  1.44it/s]Epoch 0/1:  30%|███       | 38/125 [00:26<01:01,  1.42it/s]Epoch 0/1:  31%|███       | 39/125 [00:27<00:59,  1.44it/s]Epoch 0/1:  32%|███▏      | 40/125 [00:28<00:58,  1.45it/s]Epoch 0/1:  33%|███▎      | 41/125 [00:28<00:57,  1.46it/s]Epoch 0/1:  34%|███▎      | 42/125 [00:29<00:56,  1.47it/s]Epoch 0/1:  34%|███▍      | 43/125 [00:30<00:56,  1.44it/s]Epoch 0/1:  35%|███▌      | 44/125 [00:30<00:57,  1.42it/s]Epoch 0/1:  36%|███▌      | 45/125 [00:31<00:57,  1.39it/s]Epoch 0/1:  37%|███▋      | 46/125 [00:32<00:54,  1.44it/s]Epoch 0/1:  38%|███▊      | 47/125 [00:32<00:53,  1.46it/s]Epoch 0/1:  38%|███▊      | 48/125 [00:33<00:53,  1.43it/s]Epoch 0/1:  39%|███▉      | 49/125 [00:34<00:52,  1.44it/s]Epoch 0/1:  40%|████      | 50/125 [00:34<00:50,  1.47it/s]Epoch 0/1:  41%|████      | 51/125 [00:35<00:52,  1.40it/s]Epoch 0/1:  42%|████▏     | 52/125 [00:36<00:51,  1.42it/s]Epoch 0/1:  42%|████▏     | 53/125 [00:37<00:49,  1.44it/s]Epoch 0/1:  43%|████▎     | 54/125 [00:37<00:48,  1.46it/s]Epoch 0/1:  44%|████▍     | 55/125 [00:38<00:47,  1.48it/s]Epoch 0/1:  45%|████▍     | 56/125 [00:39<00:45,  1.51it/s]Epoch 0/1:  46%|████▌     | 57/125 [00:39<00:45,  1.50it/s]Epoch 0/1:  46%|████▋     | 58/125 [00:40<00:45,  1.46it/s]Epoch 0/1:  47%|████▋     | 59/125 [00:41<00:44,  1.48it/s]Epoch 0/1:  48%|████▊     | 60/125 [00:41<00:44,  1.47it/s]Epoch 0/1:  49%|████▉     | 61/125 [00:42<00:45,  1.40it/s]Epoch 0/1:  50%|████▉     | 62/125 [00:43<00:43,  1.46it/s]Epoch 0/1:  50%|█████     | 63/125 [00:43<00:42,  1.45it/s]Epoch 0/1:  51%|█████     | 64/125 [00:44<00:43,  1.40it/s]Epoch 0/1:  52%|█████▏    | 65/125 [00:45<00:41,  1.45it/s]Epoch 0/1:  53%|█████▎    | 66/125 [00:45<00:39,  1.49it/s]Epoch 0/1:  54%|█████▎    | 67/125 [00:46<00:40,  1.42it/s]Epoch 0/1:  54%|█████▍    | 68/125 [00:47<00:38,  1.47it/s]Epoch 0/1:  55%|█████▌    | 69/125 [00:48<00:37,  1.48it/s]Epoch 0/1:  56%|█████▌    | 70/125 [00:48<00:38,  1.44it/s]Epoch 0/1:  57%|█████▋    | 71/125 [00:49<00:36,  1.49it/s]Epoch 0/1:  58%|█████▊    | 72/125 [00:50<00:34,  1.51it/s]Epoch 0/1:  58%|█████▊    | 73/125 [00:50<00:36,  1.44it/s]Epoch 0/1:  59%|█████▉    | 74/125 [00:51<00:34,  1.46it/s]Epoch 0/1:  60%|██████    | 75/125 [00:52<00:34,  1.45it/s]Epoch 0/1:  61%|██████    | 76/125 [00:52<00:33,  1.47it/s]Epoch 0/1:  62%|██████▏   | 77/125 [00:53<00:31,  1.50it/s]Epoch 0/1:  62%|██████▏   | 78/125 [00:54<00:33,  1.39it/s]Epoch 0/1:  63%|██████▎   | 79/125 [00:54<00:32,  1.42it/s]Epoch 0/1:  64%|██████▍   | 80/125 [00:55<00:32,  1.40it/s]Epoch 0/1:  65%|██████▍   | 81/125 [00:56<00:29,  1.48it/s]Epoch 0/1:  66%|██████▌   | 82/125 [00:56<00:28,  1.50it/s]Epoch 0/1:  66%|██████▋   | 83/125 [00:57<00:29,  1.43it/s]Epoch 0/1:  67%|██████▋   | 84/125 [00:58<00:28,  1.42it/s]Epoch 0/1:  68%|██████▊   | 85/125 [00:59<00:28,  1.42it/s]Epoch 0/1:  69%|██████▉   | 86/125 [00:59<00:27,  1.43it/s]Epoch 0/1:  70%|██████▉   | 87/125 [01:00<00:27,  1.39it/s]Epoch 0/1:  70%|███████   | 88/125 [01:01<00:25,  1.43it/s]Epoch 0/1:  71%|███████   | 89/125 [01:01<00:25,  1.44it/s]Epoch 0/1:  72%|███████▏  | 90/125 [01:02<00:24,  1.40it/s]Epoch 0/1:  73%|███████▎  | 91/125 [01:03<00:24,  1.42it/s]Epoch 0/1:  74%|███████▎  | 92/125 [01:04<00:23,  1.43it/s]Epoch 0/1:  74%|███████▍  | 93/125 [01:04<00:22,  1.45it/s]Epoch 0/1:  75%|███████▌  | 94/125 [01:05<00:21,  1.46it/s]Epoch 0/1:  76%|███████▌  | 95/125 [01:06<00:20,  1.48it/s]Epoch 0/1:  77%|███████▋  | 96/125 [01:06<00:19,  1.46it/s]Epoch 0/1:  78%|███████▊  | 97/125 [01:07<00:19,  1.46it/s]Epoch 0/1:  78%|███████▊  | 98/125 [01:08<00:18,  1.47it/s]Epoch 0/1:  79%|███████▉  | 99/125 [01:08<00:17,  1.45it/s]Epoch 0/1:  80%|████████  | 100/125 [01:09<00:16,  1.47it/s]Epoch 0/1:  81%|████████  | 101/125 [01:10<00:15,  1.50it/s]Epoch 0/1:  82%|████████▏ | 102/125 [01:10<00:15,  1.49it/s]Epoch 0/1:  82%|████████▏ | 103/125 [01:11<00:14,  1.50it/s]Epoch 0/1:  83%|████████▎ | 104/125 [01:12<00:14,  1.49it/s]Epoch 0/1:  84%|████████▍ | 105/125 [01:12<00:13,  1.48it/s]Epoch 0/1:  85%|████████▍ | 106/125 [01:13<00:12,  1.53it/s]Epoch 0/1:  86%|████████▌ | 107/125 [01:14<00:11,  1.53it/s]Epoch 0/1:  86%|████████▋ | 108/125 [01:14<00:11,  1.51it/s]Epoch 0/1:  87%|████████▋ | 109/125 [01:15<00:10,  1.48it/s]Epoch 0/1:  88%|████████▊ | 110/125 [01:16<00:10,  1.50it/s]Epoch 0/1:  89%|████████▉ | 111/125 [01:16<00:09,  1.50it/s]Epoch 0/1:  90%|████████▉ | 112/125 [01:17<00:08,  1.53it/s]Epoch 0/1:  90%|█████████ | 113/125 [01:18<00:07,  1.55it/s]Epoch 0/1:  91%|█████████ | 114/125 [01:18<00:07,  1.52it/s]Epoch 0/1:  92%|█████████▏| 115/125 [01:19<00:06,  1.48it/s]Epoch 0/1:  93%|█████████▎| 116/125 [01:20<00:06,  1.48it/s]Epoch 0/1:  94%|█████████▎| 117/125 [01:20<00:05,  1.46it/s]Epoch 0/1:  94%|█████████▍| 118/125 [01:21<00:04,  1.40it/s]Epoch 0/1:  95%|█████████▌| 119/125 [01:22<00:04,  1.44it/s]Epoch 0/1:  96%|█████████▌| 120/125 [01:22<00:03,  1.44it/s]Epoch 0/1:  97%|█████████▋| 121/125 [01:23<00:02,  1.39it/s]Epoch 0/1:  98%|█████████▊| 122/125 [01:24<00:02,  1.41it/s]Epoch 0/1:  98%|█████████▊| 123/125 [01:25<00:01,  1.39it/s]Epoch 0/1:  99%|█████████▉| 124/125 [01:25<00:00,  1.41it/s]Epoch 0/1: 100%|██████████| 125/125 [01:26<00:00,  1.38it/s]Epoch 0/1: 100%|██████████| 125/125 [01:26<00:00,  1.44it/s]
+train_loss: 0.49727771210670474
+train_mIoU: 0.3328530240480422
+train_accuracy: 0.49180606079101563
+Epoch 0/1:   0%|          | 0/100 [00:00<?, ?it/s]Epoch 0/1:   1%|          | 1/100 [00:00<00:17,  5.82it/s]Epoch 0/1:   4%|▍         | 4/100 [00:00<00:05, 16.61it/s]Epoch 0/1:   8%|▊         | 8/100 [00:00<00:03, 24.72it/s]Epoch 0/1:  12%|█▏        | 12/100 [00:00<00:03, 29.16it/s]Epoch 0/1:  16%|█▌        | 16/100 [00:00<00:02, 31.50it/s]Epoch 0/1:  20%|██        | 20/100 [00:00<00:02, 33.06it/s]Epoch 0/1:  24%|██▍       | 24/100 [00:00<00:02, 34.13it/s]Epoch 0/1:  28%|██▊       | 28/100 [00:00<00:02, 34.61it/s]Epoch 0/1:  32%|███▏      | 32/100 [00:01<00:01, 35.18it/s]Epoch 0/1:  36%|███▌      | 36/100 [00:01<00:01, 35.51it/s]Epoch 0/1:  40%|████      | 40/100 [00:01<00:01, 35.71it/s]Epoch 0/1:  44%|████▍     | 44/100 [00:01<00:01, 35.82it/s]Epoch 0/1:  48%|████▊     | 48/100 [00:01<00:01, 35.92it/s]Epoch 0/1:  52%|█████▏    | 52/100 [00:01<00:01, 35.91it/s]Epoch 0/1:  56%|█████▌    | 56/100 [00:01<00:01, 35.78it/s]Epoch 0/1:  60%|██████    | 60/100 [00:01<00:01, 35.89it/s]Epoch 0/1:  64%|██████▍   | 64/100 [00:01<00:01, 35.83it/s]Epoch 0/1:  68%|██████▊   | 68/100 [00:02<00:00, 35.78it/s]Epoch 0/1:  72%|███████▏  | 72/100 [00:02<00:00, 35.85it/s]Epoch 0/1:  76%|███████▌  | 76/100 [00:02<00:00, 35.93it/s]Epoch 0/1:  80%|████████  | 80/100 [00:02<00:00, 36.01it/s]Epoch 0/1:  84%|████████▍ | 84/100 [00:02<00:00, 36.12it/s]Epoch 0/1:  88%|████████▊ | 88/100 [00:02<00:00, 36.04it/s]Epoch 0/1:  92%|█████████▏| 92/100 [00:02<00:00, 36.00it/s]Epoch 0/1:  96%|█████████▌| 96/100 [00:02<00:00, 36.03it/s]Epoch 0/1: 100%|██████████| 100/100 [00:02<00:00, 36.15it/s]Epoch 0/1: 100%|██████████| 100/100 [00:02<00:00, 33.84it/s]
+val_loss: 0.4645740875601769
+val_mIoU: 0.7197399168710167
+val_accuracy: 0.8031922912597657
+saving model
+loading model for testing
+Testing...
+  0%|          | 0/14 [00:00<?, ?it/s]Traceback (most recent call last):
   File "/home/bishal/projects/SAM-Guided-U-Net/main.py", line 434, in <module>
     main()
-  File "/home/bishal/projects/SAM-Guided-U-Net/main.py", line 253, in main
-    train_loss ,train_confusion_matrix, train_mIoU,train_accuracy =  run_epoch_pipeline(model, train_data, criterion, optimizer, epoch, device, 'train',config)
-  File "/home/bishal/projects/SAM-Guided-U-Net/main.py", line 74, in run_epoch_pipeline
-    for idx, (image, label, enc) in enumerate(tqdm(data_loader, desc=f"Epoch {epoch}/{config['epochs']}")):
-  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
-    for obj in iterable:
-  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
-    data = self._next_data()
-  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
-    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
-  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
-    data = [self.dataset[idx] for idx in possibly_batched_index]
-  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
-    data = [self.dataset[idx] for idx in possibly_batched_index]
-  File "/home/bishal/projects/SAM-Guided-U-Net/dataset.py", line 48, in __getitem__
-    image = np.transpose(image, (2, 0, 1))
-UnboundLocalError: local variable 'image' referenced before assignment
-wandb: - 0.008 MB of 0.008 MB uploadedwandb: \ 0.008 MB of 0.011 MB uploadedwandb: | 0.013 MB of 0.013 MB uploadedwandb: 🚀 View run kind-crush-2 at: https://wandb.ai/bluesaiyancodes/samGuided/runs/mpi4eh08
-wandb: ️⚡ View job at https://wandb.ai/bluesaiyancodes/samGuided/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjEzOTg1NTg2OA==/version_details/v0
-wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20240215_052345-mpi4eh08/logs
+  File "/home/bishal/projects/SAM-Guided-U-Net/main.py", line 318, in main
+    pred = model(images.to(device))
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bishal/projects/SAM-Guided-U-Net/networkModules/modelUnet3p.py", line 258, in forward
+    input, SAM_Enc = inputs
+ValueError: not enough values to unpack (expected 2, got 1)
+wandb: - 0.008 MB of 0.008 MB uploadedwandb: \ 0.008 MB of 0.008 MB uploadedwandb: | 0.008 MB of 0.008 MB uploadedwandb: / 0.014 MB of 0.018 MB uploaded (0.001 MB deduped)wandb: - 0.018 MB of 0.019 MB uploaded (0.001 MB deduped)wandb: 
+wandb: Run history:
+wandb: train_accuracy ▁
+wandb:     train_loss ▁
+wandb:     train_mIoU ▁
+wandb:   val_accuracy ▁
+wandb:       val_loss ▁
+wandb:       val_mIoU ▁
+wandb: 
+wandb: Run summary:
+wandb: train_accuracy 0.49181
+wandb:     train_loss 0.49728
+wandb:     train_mIoU 0.33285
+wandb:   val_accuracy 0.80319
+wandb:       val_loss 0.46457
+wandb:       val_mIoU 0.71974
+wandb: 
+wandb: 🚀 View run evanescent-flower-3 at: https://wandb.ai/bluesaiyancodes/samGuided/runs/0rul6ead
+wandb: ️⚡ View job at https://wandb.ai/bluesaiyancodes/samGuided/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjEzOTg1NTg2OA==/version_details/v1
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240215_052739-0rul6ead/logs
