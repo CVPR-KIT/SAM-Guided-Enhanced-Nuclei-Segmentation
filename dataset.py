@@ -26,7 +26,7 @@ class nucleiDataset(Dataset):
         if self.debug:
             return self.debugDilution
         else:
-            return len(os.listdir(self.img_dir))//4 -1
+            return len(os.listdir(self.img_dir))//3 -1
 
     def __getitem__(self, index):
         try:
@@ -80,7 +80,7 @@ class nucleiValDataset(Dataset):
         if self.debug:
             return self.debugDilution
         else:
-            return len(os.listdir(self.img_dir))//4 - 1
+            return len(os.listdir(self.img_dir))//3 - 1
 
 
     def __getitem__(self, index):
@@ -97,7 +97,11 @@ class nucleiValDataset(Dataset):
         try:
             samencoding = torch.load(os.path.join(self.img_dir,str(index)+'_en.pt'))   
         except:
-            print(os.path.join(self.img_dir,str(index)+'.pt'))
+            print("\n\n")
+            print(os.path.join(self.img_dir,str(index)+'_en.pt'))
+
+        print("\nindex", index)
+        print("samencoding shape", samencoding.shape)
         
         label = cv2.imread(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'),cv2.IMREAD_GRAYSCALE)
         label[label==255] = 1

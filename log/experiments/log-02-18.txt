@@ -1,0 +1,47 @@
+Directory log/ already exists
+PreRun: Creating required directories
+Directory Outputs/ already exists
+Directory Outputs/Experiments/ already exists
+Directory log/ already exists
+PreRun: generating experiment config file
+Using cuda device
+Setting pipilines
+loading encoding model
+loading UNet3Plus
+configuring data loaders
+logging parameters
+starting training
+Epoch 0/1:   0%|          | 0/13 [00:00<?, ?it/s]Epoch 0/1:   8%|▊         | 1/13 [00:01<00:13,  1.10s/it]Epoch 0/1:  15%|█▌        | 2/13 [00:01<00:09,  1.15it/s]Epoch 0/1:  23%|██▎       | 3/13 [00:02<00:07,  1.28it/s]Epoch 0/1:  31%|███       | 4/13 [00:03<00:06,  1.34it/s]Epoch 0/1:  38%|███▊      | 5/13 [00:03<00:05,  1.39it/s]Epoch 0/1:  46%|████▌     | 6/13 [00:04<00:04,  1.42it/s]Epoch 0/1:  54%|█████▍    | 7/13 [00:05<00:04,  1.45it/s]Epoch 0/1:  62%|██████▏   | 8/13 [00:05<00:03,  1.46it/s]Epoch 0/1:  69%|██████▉   | 9/13 [00:06<00:02,  1.48it/s]Epoch 0/1:  77%|███████▋  | 10/13 [00:07<00:02,  1.49it/s]Epoch 0/1:  85%|████████▍ | 11/13 [00:07<00:01,  1.50it/s]Epoch 0/1:  92%|█████████▏| 12/13 [00:08<00:00,  1.48it/s]Epoch 0/1: 100%|██████████| 13/13 [00:08<00:00,  1.72it/s]Epoch 0/1: 100%|██████████| 13/13 [00:08<00:00,  1.46it/s]
+train_loss: 0.3177492412237021
+train_mIoU: 0.8651666285253504
+train_accuracy: 0.90783324608436
+Epoch 0/1:   0%|          | 0/300 [00:00<?, ?it/s]Epoch 0/1:   0%|          | 0/300 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/bishal/SAM-Guided-U-Net/main.py", line 435, in <module>
+    main()
+  File "/home/bishal/SAM-Guided-U-Net/main.py", line 266, in main
+    val_loss, val_confusion_matrix,val_mIoU,val_accuracy = run_epoch_pipeline(model, val_data, criterion, optimizer, epoch, device, 'val',config)
+  File "/home/bishal/SAM-Guided-U-Net/main.py", line 74, in run_epoch_pipeline
+    for idx, (image, label, enc) in enumerate(tqdm(data_loader, desc=f"Epoch {epoch}/{config['epochs']}")):
+  File "/home/bishal/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/home/bishal/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/home/bishal/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1346, in _next_data
+    return self._process_data(data)
+  File "/home/bishal/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1372, in _process_data
+    data.reraise()
+  File "/home/bishal/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/_utils.py", line 722, in reraise
+    raise exception
+UnboundLocalError: Caught UnboundLocalError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/bishal/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/bishal/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/bishal/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/bishal/SAM-Guided-U-Net/dataset.py", line 104, in __getitem__
+    print("samencoding shape", samencoding.shape)
+UnboundLocalError: local variable 'samencoding' referenced before assignment
+
