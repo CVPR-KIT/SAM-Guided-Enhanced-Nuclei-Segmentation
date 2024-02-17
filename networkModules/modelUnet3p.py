@@ -241,7 +241,10 @@ class UNet_3Plus(nn.Module):
     def forward(self, inputs):
 
         input, SAM_Enc = inputs
-        SAM_Enc = SAM_Enc.squeeze(0)
+        #SAM_Enc = SAM_Enc.squeeze(0)
+
+        #print("SAM_Enc=",SAM_Enc.shape)
+        #print("Input=",input.shape)
 
         ## -------------Encoder-------------
         h1 = self.conv1(input)  # h1->320*320*64
@@ -267,8 +270,8 @@ class UNet_3Plus(nn.Module):
         print("h2", h2.shape)
         print("h3", h3.shape)
         print("h4", h4.shape)
-        print("hd5", hd5.shape)'''
-        #print("SAM_Enc", SAM_Enc.shape)
+        print("hd5", hd5.shape)
+        print("SAM_Enc", SAM_Enc.shape)'''
 
         samcd = self.samMaxPool(SAM_Enc)
         samcd = self.samMaxPool(samcd)
@@ -283,9 +286,9 @@ class UNet_3Plus(nn.Module):
         gatedFeatures = gatingWeights * hd5
         #print("GatedFeatures=",gatedFeatures.shape)
 
-        batch_size, channels, height, width = hd5.shape
-        gated_unet_features_flat = hd5.view(batch_size, channels, -1).permute(0, 2, 1)
-        unet_features_flat = hd5.view(batch_size, channels, -1).permute(0, 2, 1)
+        batch_size, channels, height, width = gatedFeatures.shape
+        gated_unet_features_flat = gatedFeatures.view(batch_size, channels, -1).permute(0, 2, 1)
+        unet_features_flat = gatedFeatures.view(batch_size, channels, -1).permute(0, 2, 1)
 
         # Apply cross-attention
         attention_output, _ = self.cross_attention(query=gated_unet_features_flat, key=unet_features_flat, value=unet_features_flat)

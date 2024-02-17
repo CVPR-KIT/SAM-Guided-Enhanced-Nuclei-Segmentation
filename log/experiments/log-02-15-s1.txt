@@ -1,0 +1,70 @@
+Directory log/ already exists
+PreRun: Creating required directories
+Directory Outputs/ already exists
+Directory Outputs/Experiments/ already exists
+Directory log/ already exists
+PreRun: generating experiment config file
+Using cuda device
+Setting pipilines
+loading encoding model
+loading UNet3Plus
+configuring data loaders
+logging parameters
+starting training
+Epoch 0/50:   0%|          | 0/32 [00:00<?, ?it/s]Epoch 0/50:   0%|          | 0/32 [00:00<?, ?it/s]
+torch.Size([1, 256, 64, 64])
+0
+torch.Size([1, 256, 64, 64])
+1
+torch.Size([1, 256, 64, 64])
+2
+torch.Size([1, 256, 64, 64])
+3
+torch.Size([1, 256, 64, 64])
+4
+torch.Size([1, 256, 64, 64])
+5
+torch.Size([1, 256, 64, 64])
+6
+torch.Size([1, 256, 64, 64])
+7
+torch.Size([1, 256, 64, 64])
+8
+torch.Size([1, 256, 64, 64])
+9
+torch.Size([1, 256, 64, 64])
+10
+torch.Size([1, 256, 64, 64])
+11
+torch.Size([1, 256, 64, 64])
+12
+torch.Size([1, 256, 64, 64])
+13
+torch.Size([1, 256, 64, 64])
+14
+torch.Size([1, 256, 64, 64])
+15
+Traceback (most recent call last):
+  File "/home/bishal/projects/SAM-Guided-U-Net/main.py", line 435, in <module>
+    main()
+  File "/home/bishal/projects/SAM-Guided-U-Net/main.py", line 253, in main
+    train_loss ,train_confusion_matrix, train_mIoU,train_accuracy =  run_epoch_pipeline(model, train_data, criterion, optimizer, epoch, device, 'train',config)
+  File "/home/bishal/projects/SAM-Guided-U-Net/main.py", line 88, in run_epoch_pipeline
+    outputs = model((image, enc))
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bishal/projects/SAM-Guided-U-Net/networkModules/modelUnet3p.py", line 273, in forward
+    samcd = self.samMaxPool(SAM_Enc)
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bishal/projects/SAM-Guided-U-Net/networkModules/conv_modules_unet3p.py", line 134, in forward
+    x = F.max_pool2d(x, kernel_size=self.kernel_size, stride=self.stride, padding=self.padding)
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/_jit_internal.py", line 499, in fn
+    return if_false(*args, **kwargs)
+  File "/home/bishal/projects/SAM-Guided-U-Net/samGEnv/lib/python3.10/site-packages/torch/nn/functional.py", line 796, in _max_pool2d
+    return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+RuntimeError: non-empty 3D or 4D (batch mode) tensor expected for input

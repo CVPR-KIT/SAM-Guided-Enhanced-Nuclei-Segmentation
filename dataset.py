@@ -58,9 +58,10 @@ class nucleiDataset(Dataset):
 
         label = np.stack([class_0, class_1], axis=0)
         #print(samencoding.shape)
+        #print(index)
 
 
-        return torch.Tensor(image),torch.LongTensor(label), samencoding
+        return torch.Tensor(image),torch.LongTensor(label), samencoding.squeeze(0)
 
 class nucleiValDataset(Dataset):
     def __init__(self, img_dir, config = None):
@@ -108,7 +109,7 @@ class nucleiValDataset(Dataset):
         label = np.stack([class_0, class_1], axis=0)
 
 
-        return torch.Tensor(image),torch.LongTensor(label), samencoding
+        return torch.Tensor(image),torch.LongTensor(label), samencoding.squeeze(0)
 
 
 class nucleiTestDataset(Dataset):
@@ -168,5 +169,5 @@ class nucleiTestDataset(Dataset):
         
         image = np.transpose(image, (2, 0, 1))
 
-        return torch.Tensor(image),torch.LongTensor(label), samencoding
+        return torch.Tensor(image),torch.LongTensor(label), samencoding.squeeze(0)
     

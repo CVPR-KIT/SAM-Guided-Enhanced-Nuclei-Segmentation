@@ -198,7 +198,7 @@ def main():
     valPaths = config["valDataset"]
     train_dataset = nucleiDataset(trainPaths, config)
     val_dataset = nucleiValDataset(valPaths, config)
-    train_data = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
+    train_data = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=False)
     val_data = DataLoader(val_dataset,batch_size=1,num_workers=4)
 
     
