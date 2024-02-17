@@ -12,13 +12,13 @@ plotDir = "Outputs/plots/"
 
 [Pre-Processing]
 useNormalisation = "True"                         # Normalisation
-out_dir = "data/generatedData/slidingAugNormal/"         # Output for Sliding Window Augmentation
-augmented_dir = "data/generatedData/augmentated/"              # Output for Augmentation
+out_dir = "/mnt/Datasets/NuInsSeg/experiment/"         # Output for Sliding Window Augmentation
+augmented_dir = "/mnt/Datasets/NuInsSeg/augmentated/"              # Output for Augmentation
 
 tileHeight = 800                                # Sliding Window height
 tileWidth = 800                                 # Sliding Window Width
 slidingSize = 50                                # Slide Skipping size
-augmentPerImage = 100                           # Number of augmentation to perform per image that was generated using sliding down
+augmentPerImage = 50                           # Number of augmentation to perform per image 
 finalTileHeight = 256                           # Final Height of augmenated image
 finalTileWidth = 256                            # Final Width of augmenated image
 
