@@ -8,6 +8,7 @@ import numpy as np
 import math
 import argparse
 import sys
+import shutil
 
 from auxilary.utils import *
 from auxilary.simplex import Simplex_CLASS as simplex
@@ -259,7 +260,7 @@ def noisy_image(img, alpha, random_state=None):
     return image_array
 
 
-def performAugmentation(mode = 'train'):
+def performAugmentation(configPath, mode = 'train'):
 
     config = readConfig(configPath)
     log_dir = config["log"]
@@ -378,6 +379,17 @@ def performAugmentation(mode = 'train'):
 
     f.close()
 
+def organizeTestImages(configPath):
+    config = readConfig(configPath)
+    in_dir = config["out_dir"]+"orig_test/"
+    out_dir = config["augmented_dir"]+"test/"
+
+    createDir([out_dir])
+
+    for i in tqdm(range(len(glob.glob(in_dir + "images/*")))):
+        shutil.copy(in_dir + "images/" + str(i) + ".png", out_dir + str(i) + ".png")
+        shutil.copy(in_dir + "labels/" + str(i) + ".png", out_dir + str(i) + "_label.png")
+
 if __name__ == '__main__':
     
     # Read Config
@@ -389,9 +401,11 @@ if __name__ == '__main__':
         sys.exit()
 
     print("Performing Augmentation on Train Images")
-    performAugmentation('train')
+    performAugmentation(configPath , 'train')
     print("Performing Augmentation on Val Images")
-    performAugmentation('val')
+    performAugmentation(configPath, 'val')
+    print("Organizaing Test Images")
+    organizeTestImages(configPath)
 
     
 

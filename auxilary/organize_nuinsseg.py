@@ -21,9 +21,14 @@ os.makedirs(organized_data_path_val, exist_ok=True)
 os.makedirs(organized_data_path_val + 'images/', exist_ok=True)
 os.makedirs(organized_data_path_val + 'labels/', exist_ok=True)
 os.makedirs(organized_data_path_test, exist_ok=True)
+os.makedirs(organized_data_path_test + 'images/', exist_ok=True)
+os.makedirs(organized_data_path_test + 'labels/', exist_ok=True)
 
 # create meta
 meta = {}
+count_tr = 0
+count_v = 0
+count_t = 0
 
 # Define the path to the original data
 for dirs_ in tqdm(os.listdir(data_path)):
@@ -42,17 +47,24 @@ for dirs_ in tqdm(os.listdir(data_path)):
 
 
         if i < len(os.listdir(tissue_path)) * 0.7:
-            shutil.copy(tissue_path + tissue_img, organized_data_path_train+ 'images/' + tissue_img)
-            shutil.copy(mask_path + mask_img, organized_data_path_train + 'labels/' + mask_img)
+            shutil.copy(tissue_path + tissue_img, organized_data_path_train+ 'images/' + str(count_tr) + '.png')
+            shutil.copy(mask_path + mask_img, organized_data_path_train + 'labels/' + str(count_tr) + '.png')
             meta[dirs_]['train'] += 1
+            count_tr += 1
         elif i < len(os.listdir(tissue_path)) * 0.85:
-            shutil.copy(tissue_path + tissue_img, organized_data_path_val + 'images/' +tissue_img)
-            shutil.copy(mask_path + mask_img, organized_data_path_val + 'labels/' + mask_img)
+            shutil.copy(tissue_path + tissue_img, organized_data_path_val + 'images/' + str(count_v) + '.png')
+            shutil.copy(mask_path + mask_img, organized_data_path_val + 'labels/' + str(count_v) + '.png')
             meta[dirs_]['val'] += 1
+            count_v += 1
         else:
-            shutil.copy(tissue_path + tissue_img, organized_data_path_test + tissue_img)
-            shutil.copy(mask_path + mask_img, organized_data_path_test + mask_img)
+            shutil.copy(tissue_path + tissue_img, organized_data_path_test + 'images/' + str(count_t) + '.png')
+            shutil.copy(mask_path + mask_img, organized_data_path_test + 'labels/' + str(count_t) + '.png')
             meta[dirs_]['test'] += 1
+            count_t += 1
+        
+        
+        
+        
 
 # save meta
 f = open(organized_data_path + 'meta.json', 'w')

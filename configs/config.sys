@@ -13,7 +13,7 @@ plotDir = "Outputs/plots/"
 [Pre-Processing]
 useNormalisation = "True"                         # Normalisation
 out_dir = "/mnt/Datasets/NuInsSeg/experiment/"         # Output for Sliding Window Augmentation
-augmented_dir = "/mnt/Datasets/NuInsSeg/augmentated/"              # Output for Augmentation
+augmented_dir = "/mnt/Datasets/NuInsSeg/final/"              # Output for Augmentation
 
 tileHeight = 800                                # Sliding Window height
 tileWidth = 800                                 # Sliding Window Width
@@ -23,9 +23,9 @@ finalTileHeight = 256                           # Final Height of augmenated ima
 finalTileWidth = 256                            # Final Width of augmenated image
 
 splitRatio = 0.7                                # 0.8 -> 80% training 20% validation
-trainDataset = "/mnt/BishalFiles/Datasets/MoNuSeg/wEncodings/trainNormal1/"                    # Images to be during Training
-valDataset = "/mnt/BishalFiles/Datasets/MoNuSeg/wEncodings/valNormal1/"                        # Images to used during Validation
-testDataset = "/mnt/BishalFiles/Datasets/MoNuSeg/wEncodings/testNormal/"                      # Images to used during Testing
+trainDataset = "/mnt/Datasets/NuInsSeg/final/train/"                    # Images to be during Training
+valDataset = "/mnt/Datasets/NuInsSeg/final/val/"                        # Images to used during Validation
+testDataset = "/mnt/Datasets/NuInsSeg/final/test/"                      # Images to used during Testing
 
 [Class Config]
 class1 = "0, 0, 0"                              #black
