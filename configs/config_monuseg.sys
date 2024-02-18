@@ -34,7 +34,7 @@ class2 = "255, 255, 255"                        #white
 
 
 [Training]
-logWandb = "False"                              # Log to Wandb - True or False
+logWandb = "True"                              # Log to Wandb - True or False
 wandbProjectName = "monunet-segmenation"                   # Wandb Project Name
 debug = "False"                                 # Debug Mode - True or False: Radically reduces the dataset size for faster training
 trainingDilution =  1000                           # Debug Dilution - number of images to use while training in debug mode

@@ -1,0 +1,19 @@
+wandb: Currently logged in as: bluesaiyancodes. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.16.3
+wandb: Run data is saved locally in /home/bishal/SAM-Guided-U-Net/wandb/run-20240218_211907-p3h52q0y
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run scintillating-fuse-137
+wandb: ⭐️ View project at https://wandb.ai/bluesaiyancodes/monunet-segmenation
+wandb: 🚀 View run at https://wandb.ai/bluesaiyancodes/monunet-segmenation/runs/p3h52q0y
+Directory log/ already exists
+PreRun: Creating required directories
+Directory log/ already exists
+PreRun: generating experiment config file
+Using cuda device
+Setting pipilines
+loading encoding model
+loading UNet3Plus
+configuring data loaders
+logging parameters
+starting training
+Epoch 0/50:   0%|          | 0/2673 [00:00<?, ?it/s]Epoch 0/50:   0%|          | 1/2673 [00:06<4:36:36,  6.21s/it]Epoch 0/50:   0%|          | 2/2673 [00:12<4:35:36,  6.19s/it]Epoch 0/50:   0%|          | 3/2673 [00:18<4:29:18,  6.05s/it]Epoch 0/50:   0%|          | 4/2673 [00:23<4:16:21,  5.76s/it]Epoch 0/50:   0%|          | 5/2673 [00:28<4:05:31,  5.52s/it]

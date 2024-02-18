@@ -2139,3 +2139,27 @@
     "activation": "GLU"
 }
 02/18/2024 05:44:53 AM starting training
+02/18/2024 09:15:11 PM 
+
+#################### New Run ####################
+02/18/2024 09:19:06 PM 
+
+#################### New Run ####################
+02/18/2024 09:19:08 PM PreRun: Creating required directories
+02/18/2024 09:19:08 PM PreRun: Generating experiment config file
+02/18/2024 09:19:08 PM Using cuda device
+02/18/2024 09:19:08 PM Setting pipilines
+02/18/2024 09:19:08 PM loading encoding model
+02/18/2024 09:19:08 PM loading UNet3Plus
+02/18/2024 09:19:08 PM configuring data loaders
+02/18/2024 09:19:09 PM logging parameters
+02/18/2024 09:19:09 PM {
+    "debug": false,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/18/2024 09:19:09 PM starting training
