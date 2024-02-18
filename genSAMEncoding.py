@@ -20,9 +20,9 @@ if __name__ == '__main__':
     valDir = '/mnt/Datasets/NuInsSeg/final/val/'
     testDir = '/mnt/Datasets/NuInsSeg/final/test/'''
 
-    trainDir = '/mnt/Datasets/MoNuSeg/wEncodings/trainNormal1/'
-    valDir = '/mnt/Datasets/MoNuSeg/wEncodings/valNormal1/'
-    testDir = '/mnt/Datasets/MoNuSeg/wEncodings/testNormal/'
+    trainDir = '/mnt/Datasets/CoNIC/prepared_CoNIC/trainNormal/'
+    valDir = '/mnt/Datasets/CoNIC/prepared_CoNIC/valNormal/'
+    testDir = '/mnt/Datasets/CoNIC/prepared_CoNIC/testNormal/'
 
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     sam = sam_model_registry["vit_b"](checkpoint=samWeight).to(device)
     predictor = SamPredictor(sam)
 
-    dirs = [trainDir, valDir]
+    dirs = [trainDir, valDir, testDir]
     #dirs = [testDir]
     for dir_ in dirs: 
         print(f"Generating {dir_} encodings")
