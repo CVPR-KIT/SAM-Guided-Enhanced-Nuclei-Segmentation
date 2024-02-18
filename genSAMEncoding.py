@@ -16,9 +16,13 @@ from segment_anything import SamPredictor, sam_model_registry
 if __name__ == '__main__':
 
     # Get the path to the data directory
-    trainDir = '/mnt/Datasets/NuInsSeg/final/train/'
+    '''trainDir = '/mnt/Datasets/NuInsSeg/final/train/'
     valDir = '/mnt/Datasets/NuInsSeg/final/val/'
-    testDir = '/mnt/Datasets/NuInsSeg/final/test/'
+    testDir = '/mnt/Datasets/NuInsSeg/final/test/'''
+
+    trainDir = '/mnt/Datasets/MoNuSeg/wEncodings/trainNormal1/'
+    valDir = '/mnt/Datasets/MoNuSeg/wEncodings/valNormal1/'
+    testDir = '/mnt/Datasets/MoNuSeg/wEncodings/testNormal/'
 
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -32,7 +36,7 @@ if __name__ == '__main__':
     sam = sam_model_registry["vit_b"](checkpoint=samWeight).to(device)
     predictor = SamPredictor(sam)
 
-    dirs = [trainDir, valDir, testDir]
+    dirs = [trainDir, valDir]
     #dirs = [testDir]
     for dir_ in dirs: 
         print(f"Generating {dir_} encodings")

@@ -19,6 +19,7 @@ class nucleiDataset(Dataset):
 
         self.debug = self.config["debug"]
         self.debugDilution = self.config["trainingDilution"]
+        self.project = self.config["wandbProjectName"]
     
         return 
     
@@ -26,7 +27,10 @@ class nucleiDataset(Dataset):
         if self.debug:
             return self.debugDilution
         else:
-            return len(os.listdir(self.img_dir))//3 -1
+            factor = 3
+            if self.project == "monunet-segmenation":
+                factor = 4
+            return len(os.listdir(self.img_dir))//factor -1
 
     def __getitem__(self, index):
         try:
@@ -40,9 +44,12 @@ class nucleiDataset(Dataset):
             print(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'))  
 
         try:
-            samencoding = torch.load(os.path.join(self.img_dir,str(index)+'_en.pt'))   
+            samencoding = torch.load(os.path.join(self.img_dir,str(index)+'_en.pt'), map_location=torch.device('cpu'))   
         except:
-            print(os.path.join(self.img_dir,str(index)+'.pt'))
+            print(os.path.join(self.img_dir,str(index)+'_en.pt'))
+        
+        print(index)
+        print(samencoding.shape)
         
         if self.config["input_img_type"] == "rgb":
             image = np.transpose(image, (2, 0, 1))
@@ -80,7 +87,10 @@ class nucleiValDataset(Dataset):
         if self.debug:
             return self.debugDilution
         else:
-            return len(os.listdir(self.img_dir))//3 - 1
+            factor = 3
+            if self.project == "monunet-segmenation":
+                factor = 4
+            return len(os.listdir(self.img_dir))//factor -1
 
 
     def __getitem__(self, index):
@@ -95,13 +105,10 @@ class nucleiValDataset(Dataset):
             image = np.reshape(image,(1,image.shape[0],image.shape[1]))
         
         try:
-            samencoding = torch.load(os.path.join(self.img_dir,str(index)+'_en.pt'))   
+            samencoding = torch.load(os.path.join(self.img_dir,str(index)+'_en.pt'), map_location=torch.device('cpu'))   
         except:
-            print("\n\n")
             print(os.path.join(self.img_dir,str(index)+'_en.pt'))
 
-        print("\nindex", index)
-        print("samencoding shape", samencoding.shape)
         
         label = cv2.imread(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'),cv2.IMREAD_GRAYSCALE)
         label[label==255] = 1
@@ -150,7 +157,7 @@ class nucleiTestDataset(Dataset):
         label = cv2.imread(os.path.join(self.img_dir,str(index)+"_label.png"),cv2.IMREAD_GRAYSCALE)
 
         try:
-            samencoding = torch.load(os.path.join(self.img_dir,str(index)+'_en.pt'))   
+            samencoding = torch.load(os.path.join(self.img_dir,str(index)+'_en.pt'), map_location=torch.device('cpu'))   
         except:
             print(os.path.join(self.img_dir,str(index)+'_en.pt'))
 

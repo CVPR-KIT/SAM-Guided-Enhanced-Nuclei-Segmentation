@@ -1,0 +1,57 @@
+log = "log/"
+
+[Data Information]
+original_trainingDir = "data/Original/Training/"
+original_testingDir = "data/Original/Test/"
+metaDataPath = "data/metaInfos/"
+textDescriptionPath = "data/textDescriptions/"
+textEncodingPath = "data/textEncodings/"
+
+[Plot Information]
+plotDir = "Outputs/plots/"
+
+[Pre-Processing]
+useNormalisation = "True"                         # Normalisation
+out_dir = ""         # Output for Sliding Window Augmentation
+augmented_dir = ""              # Output for Augmentation
+
+tileHeight = 800                                # Sliding Window height
+tileWidth = 800                                 # Sliding Window Width
+slidingSize = 50                                # Slide Skipping size
+augmentPerImage = 50                           # Number of augmentation to perform per image 
+finalTileHeight = 256                           # Final Height of augmenated image
+finalTileWidth = 256                            # Final Width of augmenated image
+
+splitRatio = 0.7                                # 0.8 -> 80% training 20% validation
+trainDataset = "/mnt/Datasets/MoNuSeg/wEncodings/trainNormal1/"                    # Images to be during Training
+valDataset = "/mnt/Datasets/MoNuSeg/wEncodings/valNormal1/"                        # Images to used during Validation
+testDataset = "/mnt/Datasets/MoNuSeg/wEncodings/testNormal/"                      # Images to used during Testing
+
+[Class Config]
+class1 = "0, 0, 0"                              #black
+class2 = "255, 255, 255"                        #white  
+
+
+
+[Training]
+logWandb = "False"                              # Log to Wandb - True or False
+wandbProjectName = "monunet-segmenation"                   # Wandb Project Name
+debug = "False"                                 # Debug Mode - True or False: Radically reduces the dataset size for faster training
+trainingDilution =  1000                           # Debug Dilution - number of images to use while training in debug mode
+validationDilution = 300                           # Debug Dilution - number of images to use while validation in debug mode
+BaseModel = "UNet3Plus"                                # UNet3Plus 
+SAM_Guided = "True"                             # SAM Guided - True or False
+
+[Parameters]
+input_img_type = "rgb"                          # Input Image Type: rgb, gray
+epochs = 50
+batch_size = 16
+channel = 32
+kernel_size = 3
+learning_rate = 0.00001                         # can be set to "auto" for finding the best learning rate or set to 0.00001
+lr_decay = "False"                             # Learning Rate Decay  - True or False
+num_classes = 2
+activation = "GLU"                             # Activations available: relu, GLU
+loss = "focaldice"                           # weighteddice, focaldice
+dropout = 0.3
+use_maxblurpool = "True"                       # Use MaxBlurPool - True or False

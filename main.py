@@ -24,7 +24,7 @@ from auxilary.lossFunctions import *
 
 def wandb_init(config):
     # Initialize wandb
-    wandb.init(project="samGuided", config=config)
+    wandb.init(project=config["wandbProjectName"], config=config)
 
 
 def make_preRunNecessities(config):
@@ -198,7 +198,7 @@ def main():
     valPaths = config["valDataset"]
     train_dataset = nucleiDataset(trainPaths, config)
     val_dataset = nucleiValDataset(valPaths, config)
-    train_data = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=False)
+    train_data = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
     val_data = DataLoader(val_dataset,batch_size=1,num_workers=4)
 
     
