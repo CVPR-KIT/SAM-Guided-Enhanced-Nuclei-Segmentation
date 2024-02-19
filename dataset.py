@@ -80,6 +80,7 @@ class nucleiValDataset(Dataset):
             self.config = config
         self.debug = self.config["debug"]
         self.debugDilution = self.config["validationDilution"]
+        self.project = self.config["wandbProjectName"]
     
         return 
     
