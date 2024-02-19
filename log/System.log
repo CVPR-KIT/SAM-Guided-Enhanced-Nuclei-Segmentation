@@ -2247,3 +2247,769 @@
     "activation": "GLU"
 }
 02/19/2024 02:43:01 AM starting training
+02/19/2024 02:58:21 AM 
+
+#################### New Run ####################
+02/19/2024 02:58:23 AM PreRun: Creating required directories
+02/19/2024 02:58:23 AM PreRun: Generating experiment config file
+02/19/2024 02:58:23 AM Using cuda device
+02/19/2024 02:58:23 AM Setting pipilines
+02/19/2024 02:58:23 AM loading encoding model
+02/19/2024 02:58:23 AM loading UNet3Plus
+02/19/2024 02:58:23 AM configuring data loaders
+02/19/2024 02:58:24 AM logging parameters
+02/19/2024 02:58:24 AM {
+    "debug": false,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 02:58:24 AM starting training
+02/19/2024 03:58:53 AM 
+
+#################### New Run ####################
+02/19/2024 03:58:53 AM PreRun: Creating required directories
+02/19/2024 03:58:53 AM PreRun: Generating experiment config file
+02/19/2024 03:58:53 AM Using cuda device
+02/19/2024 03:58:53 AM Setting pipilines
+02/19/2024 03:58:53 AM loading encoding model
+02/19/2024 03:58:53 AM loading UNet3Plus
+02/19/2024 03:58:53 AM configuring data loaders
+02/19/2024 03:58:53 AM logging parameters
+02/19/2024 03:58:53 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 03:58:53 AM starting training
+02/19/2024 04:27:16 AM saving model at Outputs/Experiments/experiment_02-19_02.58.23/model/best_model_0.pth
+02/19/2024 04:53:32 AM 
+
+#################### New Run ####################
+02/19/2024 04:53:32 AM PreRun: Creating required directories
+02/19/2024 04:53:32 AM PreRun: Generating experiment config file
+02/19/2024 04:53:32 AM Using cuda device
+02/19/2024 04:53:32 AM Setting pipilines
+02/19/2024 04:53:32 AM loading encoding model
+02/19/2024 04:53:32 AM loading UNet3Plus
+02/19/2024 04:53:32 AM configuring data loaders
+02/19/2024 04:53:32 AM logging parameters
+02/19/2024 04:53:32 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 04:53:32 AM starting training
+02/19/2024 04:55:31 AM 
+
+#################### New Run ####################
+02/19/2024 04:55:31 AM PreRun: Creating required directories
+02/19/2024 04:55:31 AM PreRun: Generating experiment config file
+02/19/2024 04:55:31 AM Using cuda device
+02/19/2024 04:55:31 AM Setting pipilines
+02/19/2024 04:55:31 AM loading encoding model
+02/19/2024 04:55:31 AM loading UNet3Plus
+02/19/2024 04:55:31 AM configuring data loaders
+02/19/2024 04:55:32 AM logging parameters
+02/19/2024 04:55:32 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 04:55:32 AM starting training
+02/19/2024 04:56:39 AM 
+
+#################### New Run ####################
+02/19/2024 04:56:39 AM PreRun: Creating required directories
+02/19/2024 04:56:39 AM PreRun: Generating experiment config file
+02/19/2024 04:56:39 AM Using cuda device
+02/19/2024 04:56:39 AM Setting pipilines
+02/19/2024 04:56:39 AM loading encoding model
+02/19/2024 04:56:39 AM loading UNet3Plus
+02/19/2024 04:56:39 AM configuring data loaders
+02/19/2024 04:56:40 AM logging parameters
+02/19/2024 04:56:40 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 04:56:40 AM starting training
+02/19/2024 04:56:53 AM 
+
+#################### New Run ####################
+02/19/2024 04:56:53 AM PreRun: Creating required directories
+02/19/2024 04:56:53 AM PreRun: Generating experiment config file
+02/19/2024 04:56:53 AM Using cuda device
+02/19/2024 04:56:53 AM Setting pipilines
+02/19/2024 04:56:53 AM loading encoding model
+02/19/2024 04:56:53 AM loading UNet3Plus
+02/19/2024 04:56:53 AM configuring data loaders
+02/19/2024 04:56:54 AM logging parameters
+02/19/2024 04:56:54 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 04:56:54 AM starting training
+02/19/2024 05:04:43 AM 
+
+#################### New Run ####################
+02/19/2024 05:04:43 AM PreRun: Creating required directories
+02/19/2024 05:04:43 AM PreRun: Generating experiment config file
+02/19/2024 05:04:43 AM Using cuda device
+02/19/2024 05:04:43 AM Setting pipilines
+02/19/2024 05:04:43 AM loading encoding model
+02/19/2024 05:04:43 AM loading UNet3Plus
+02/19/2024 05:04:43 AM configuring data loaders
+02/19/2024 05:04:43 AM logging parameters
+02/19/2024 05:04:43 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:04:43 AM starting training
+02/19/2024 05:05:04 AM 
+
+#################### New Run ####################
+02/19/2024 05:05:04 AM PreRun: Creating required directories
+02/19/2024 05:05:04 AM PreRun: Generating experiment config file
+02/19/2024 05:05:04 AM Using cuda device
+02/19/2024 05:05:04 AM Setting pipilines
+02/19/2024 05:05:04 AM loading encoding model
+02/19/2024 05:05:04 AM loading UNet3Plus
+02/19/2024 05:05:04 AM configuring data loaders
+02/19/2024 05:05:04 AM logging parameters
+02/19/2024 05:05:04 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:05:04 AM starting training
+02/19/2024 05:12:31 AM 
+
+#################### New Run ####################
+02/19/2024 05:12:31 AM PreRun: Creating required directories
+02/19/2024 05:12:31 AM PreRun: Generating experiment config file
+02/19/2024 05:12:31 AM Using cuda device
+02/19/2024 05:12:31 AM Setting pipilines
+02/19/2024 05:12:31 AM loading encoding model
+02/19/2024 05:12:31 AM loading UNet3Plus
+02/19/2024 05:12:31 AM configuring data loaders
+02/19/2024 05:12:32 AM logging parameters
+02/19/2024 05:12:32 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:12:32 AM starting training
+02/19/2024 05:13:54 AM 
+
+#################### New Run ####################
+02/19/2024 05:13:54 AM PreRun: Creating required directories
+02/19/2024 05:13:54 AM PreRun: Generating experiment config file
+02/19/2024 05:13:54 AM Using cuda device
+02/19/2024 05:13:54 AM Setting pipilines
+02/19/2024 05:13:54 AM loading encoding model
+02/19/2024 05:13:54 AM loading UNet3Plus
+02/19/2024 05:13:54 AM configuring data loaders
+02/19/2024 05:13:54 AM logging parameters
+02/19/2024 05:13:54 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:13:54 AM starting training
+02/19/2024 05:16:53 AM 
+
+#################### New Run ####################
+02/19/2024 05:16:53 AM PreRun: Creating required directories
+02/19/2024 05:16:53 AM PreRun: Generating experiment config file
+02/19/2024 05:16:53 AM Using cuda device
+02/19/2024 05:16:53 AM Setting pipilines
+02/19/2024 05:16:53 AM loading encoding model
+02/19/2024 05:16:53 AM loading UNet3Plus
+02/19/2024 05:16:54 AM configuring data loaders
+02/19/2024 05:16:54 AM logging parameters
+02/19/2024 05:16:54 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:16:54 AM starting training
+02/19/2024 05:17:32 AM 
+
+#################### New Run ####################
+02/19/2024 05:17:32 AM PreRun: Creating required directories
+02/19/2024 05:17:32 AM PreRun: Generating experiment config file
+02/19/2024 05:17:32 AM Using cuda device
+02/19/2024 05:17:32 AM Setting pipilines
+02/19/2024 05:17:32 AM loading encoding model
+02/19/2024 05:17:32 AM loading UNet3Plus
+02/19/2024 05:17:33 AM configuring data loaders
+02/19/2024 05:17:33 AM logging parameters
+02/19/2024 05:17:33 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:17:33 AM starting training
+02/19/2024 05:18:04 AM 
+
+#################### New Run ####################
+02/19/2024 05:18:04 AM PreRun: Creating required directories
+02/19/2024 05:18:04 AM PreRun: Generating experiment config file
+02/19/2024 05:18:04 AM Using cuda device
+02/19/2024 05:18:04 AM Setting pipilines
+02/19/2024 05:18:04 AM loading encoding model
+02/19/2024 05:18:04 AM loading UNet3Plus
+02/19/2024 05:18:04 AM configuring data loaders
+02/19/2024 05:18:04 AM logging parameters
+02/19/2024 05:18:04 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:18:04 AM starting training
+02/19/2024 05:20:05 AM 
+
+#################### New Run ####################
+02/19/2024 05:20:05 AM PreRun: Creating required directories
+02/19/2024 05:20:05 AM PreRun: Generating experiment config file
+02/19/2024 05:20:05 AM Using cuda device
+02/19/2024 05:20:05 AM Setting pipilines
+02/19/2024 05:20:05 AM loading encoding model
+02/19/2024 05:20:05 AM loading UNet3Plus
+02/19/2024 05:20:06 AM configuring data loaders
+02/19/2024 05:20:06 AM logging parameters
+02/19/2024 05:20:06 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:20:06 AM starting training
+02/19/2024 05:20:51 AM 
+
+#################### New Run ####################
+02/19/2024 05:20:51 AM PreRun: Creating required directories
+02/19/2024 05:20:51 AM PreRun: Generating experiment config file
+02/19/2024 05:20:51 AM Using cuda device
+02/19/2024 05:20:51 AM Setting pipilines
+02/19/2024 05:20:51 AM loading encoding model
+02/19/2024 05:20:51 AM loading UNet3Plus
+02/19/2024 05:20:51 AM configuring data loaders
+02/19/2024 05:20:52 AM logging parameters
+02/19/2024 05:20:52 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:20:52 AM starting training
+02/19/2024 05:23:51 AM 
+
+#################### New Run ####################
+02/19/2024 05:23:51 AM PreRun: Creating required directories
+02/19/2024 05:23:51 AM PreRun: Generating experiment config file
+02/19/2024 05:23:51 AM Using cuda device
+02/19/2024 05:23:51 AM Setting pipilines
+02/19/2024 05:23:51 AM loading encoding model
+02/19/2024 05:23:51 AM loading UNet3Plus
+02/19/2024 05:23:51 AM configuring data loaders
+02/19/2024 05:23:52 AM logging parameters
+02/19/2024 05:23:52 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:23:52 AM starting training
+02/19/2024 05:24:25 AM 
+
+#################### New Run ####################
+02/19/2024 05:24:25 AM PreRun: Creating required directories
+02/19/2024 05:24:25 AM PreRun: Generating experiment config file
+02/19/2024 05:24:25 AM Using cuda device
+02/19/2024 05:24:25 AM Setting pipilines
+02/19/2024 05:24:25 AM loading encoding model
+02/19/2024 05:24:25 AM loading UNet3Plus
+02/19/2024 05:24:25 AM configuring data loaders
+02/19/2024 05:24:25 AM logging parameters
+02/19/2024 05:24:25 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:24:25 AM starting training
+02/19/2024 05:25:17 AM 
+
+#################### New Run ####################
+02/19/2024 05:25:17 AM PreRun: Creating required directories
+02/19/2024 05:25:17 AM PreRun: Generating experiment config file
+02/19/2024 05:25:17 AM Using cuda device
+02/19/2024 05:25:17 AM Setting pipilines
+02/19/2024 05:25:17 AM loading encoding model
+02/19/2024 05:25:17 AM loading UNet3Plus
+02/19/2024 05:25:18 AM configuring data loaders
+02/19/2024 05:25:18 AM logging parameters
+02/19/2024 05:25:18 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:25:18 AM starting training
+02/19/2024 05:27:30 AM 
+
+#################### New Run ####################
+02/19/2024 05:27:30 AM PreRun: Creating required directories
+02/19/2024 05:27:30 AM PreRun: Generating experiment config file
+02/19/2024 05:27:30 AM Using cuda device
+02/19/2024 05:27:30 AM Setting pipilines
+02/19/2024 05:27:30 AM loading encoding model
+02/19/2024 05:27:30 AM loading UNet3Plus
+02/19/2024 05:27:30 AM configuring data loaders
+02/19/2024 05:27:30 AM logging parameters
+02/19/2024 05:27:30 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:27:30 AM starting training
+02/19/2024 05:30:50 AM 
+
+#################### New Run ####################
+02/19/2024 05:30:50 AM PreRun: Creating required directories
+02/19/2024 05:30:50 AM PreRun: Generating experiment config file
+02/19/2024 05:30:50 AM Using cuda device
+02/19/2024 05:30:50 AM Setting pipilines
+02/19/2024 05:30:50 AM loading encoding model
+02/19/2024 05:30:50 AM loading UNet3Plus
+02/19/2024 05:30:51 AM configuring data loaders
+02/19/2024 05:30:51 AM logging parameters
+02/19/2024 05:30:51 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:30:51 AM starting training
+02/19/2024 05:34:33 AM 
+
+#################### New Run ####################
+02/19/2024 05:34:33 AM PreRun: Creating required directories
+02/19/2024 05:34:33 AM PreRun: Generating experiment config file
+02/19/2024 05:34:33 AM Using cuda device
+02/19/2024 05:34:33 AM Setting pipilines
+02/19/2024 05:34:33 AM loading encoding model
+02/19/2024 05:34:33 AM loading UNet3Plus
+02/19/2024 05:34:34 AM configuring data loaders
+02/19/2024 05:34:34 AM logging parameters
+02/19/2024 05:34:34 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:34:34 AM starting training
+02/19/2024 05:39:30 AM 
+
+#################### New Run ####################
+02/19/2024 05:39:30 AM PreRun: Creating required directories
+02/19/2024 05:39:30 AM PreRun: Generating experiment config file
+02/19/2024 05:39:30 AM Using cuda device
+02/19/2024 05:39:30 AM Setting pipilines
+02/19/2024 05:39:30 AM loading encoding model
+02/19/2024 05:39:30 AM loading UNet3Plus
+02/19/2024 05:39:31 AM configuring data loaders
+02/19/2024 05:39:31 AM logging parameters
+02/19/2024 05:39:31 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:39:31 AM starting training
+02/19/2024 05:40:22 AM 
+
+#################### New Run ####################
+02/19/2024 05:40:22 AM PreRun: Creating required directories
+02/19/2024 05:40:22 AM PreRun: Generating experiment config file
+02/19/2024 05:40:22 AM Using cuda device
+02/19/2024 05:40:22 AM Setting pipilines
+02/19/2024 05:40:22 AM loading encoding model
+02/19/2024 05:40:22 AM loading UNet3Plus
+02/19/2024 05:40:22 AM configuring data loaders
+02/19/2024 05:40:22 AM logging parameters
+02/19/2024 05:40:22 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:40:22 AM starting training
+02/19/2024 05:47:37 AM 
+
+#################### New Run ####################
+02/19/2024 05:47:37 AM PreRun: Creating required directories
+02/19/2024 05:47:37 AM PreRun: Generating experiment config file
+02/19/2024 05:47:37 AM Using cuda device
+02/19/2024 05:47:37 AM Setting pipilines
+02/19/2024 05:47:37 AM loading encoding model
+02/19/2024 05:47:37 AM loading UNet3Plus
+02/19/2024 05:47:37 AM configuring data loaders
+02/19/2024 05:47:38 AM logging parameters
+02/19/2024 05:47:38 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:47:38 AM starting training
+02/19/2024 05:48:31 AM 
+
+#################### New Run ####################
+02/19/2024 05:48:31 AM PreRun: Creating required directories
+02/19/2024 05:48:31 AM PreRun: Generating experiment config file
+02/19/2024 05:48:31 AM Using cuda device
+02/19/2024 05:48:31 AM Setting pipilines
+02/19/2024 05:48:31 AM loading encoding model
+02/19/2024 05:48:31 AM loading UNet3Plus
+02/19/2024 05:48:31 AM configuring data loaders
+02/19/2024 05:48:31 AM logging parameters
+02/19/2024 05:48:31 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:48:31 AM starting training
+02/19/2024 05:52:30 AM 
+
+#################### New Run ####################
+02/19/2024 05:52:30 AM PreRun: Creating required directories
+02/19/2024 05:52:30 AM PreRun: Generating experiment config file
+02/19/2024 05:52:30 AM Using cuda device
+02/19/2024 05:52:30 AM Setting pipilines
+02/19/2024 05:52:30 AM loading encoding model
+02/19/2024 05:52:30 AM loading UNet3Plus
+02/19/2024 05:52:31 AM configuring data loaders
+02/19/2024 05:52:31 AM logging parameters
+02/19/2024 05:52:31 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:52:31 AM starting training
+02/19/2024 05:56:51 AM 
+
+#################### New Run ####################
+02/19/2024 05:56:51 AM PreRun: Creating required directories
+02/19/2024 05:56:51 AM PreRun: Generating experiment config file
+02/19/2024 05:56:51 AM Using cuda device
+02/19/2024 05:56:51 AM Setting pipilines
+02/19/2024 05:56:51 AM loading encoding model
+02/19/2024 05:56:51 AM loading UNet3Plus
+02/19/2024 05:56:51 AM configuring data loaders
+02/19/2024 05:56:52 AM logging parameters
+02/19/2024 05:56:52 AM {
+    "debug": true,
+    "epochs": 50,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 05:56:52 AM starting training
+02/19/2024 06:00:42 AM 
+
+#################### New Run ####################
+02/19/2024 06:00:42 AM PreRun: Creating required directories
+02/19/2024 06:00:42 AM PreRun: Generating experiment config file
+02/19/2024 06:00:42 AM Using cuda device
+02/19/2024 06:00:42 AM Setting pipilines
+02/19/2024 06:00:42 AM loading encoding model
+02/19/2024 06:00:42 AM loading UNet3Plus
+02/19/2024 06:00:42 AM configuring data loaders
+02/19/2024 06:00:42 AM logging parameters
+02/19/2024 06:00:42 AM {
+    "debug": true,
+    "epochs": 1,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 06:00:42 AM starting training
+02/19/2024 06:00:56 AM 
+
+#################### New Run ####################
+02/19/2024 06:00:56 AM PreRun: Creating required directories
+02/19/2024 06:00:56 AM PreRun: Generating experiment config file
+02/19/2024 06:00:56 AM Using cuda device
+02/19/2024 06:00:56 AM Setting pipilines
+02/19/2024 06:00:56 AM loading encoding model
+02/19/2024 06:00:56 AM loading UNet3Plus
+02/19/2024 06:00:56 AM configuring data loaders
+02/19/2024 06:00:56 AM logging parameters
+02/19/2024 06:00:56 AM {
+    "debug": true,
+    "epochs": 1,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 06:00:56 AM starting training
+02/19/2024 06:02:52 AM 
+
+#################### New Run ####################
+02/19/2024 06:02:52 AM PreRun: Creating required directories
+02/19/2024 06:02:52 AM PreRun: Generating experiment config file
+02/19/2024 06:02:52 AM Using cuda device
+02/19/2024 06:02:52 AM Setting pipilines
+02/19/2024 06:02:52 AM loading encoding model
+02/19/2024 06:02:52 AM loading UNet3Plus
+02/19/2024 06:02:53 AM configuring data loaders
+02/19/2024 06:02:53 AM logging parameters
+02/19/2024 06:02:53 AM {
+    "debug": true,
+    "epochs": 1,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 06:02:53 AM starting training
+02/19/2024 06:04:03 AM 
+
+#################### New Run ####################
+02/19/2024 06:04:03 AM PreRun: Creating required directories
+02/19/2024 06:04:03 AM PreRun: Generating experiment config file
+02/19/2024 06:04:03 AM Using cuda device
+02/19/2024 06:04:03 AM Setting pipilines
+02/19/2024 06:04:03 AM loading encoding model
+02/19/2024 06:04:03 AM loading UNet3Plus
+02/19/2024 06:04:03 AM configuring data loaders
+02/19/2024 06:04:04 AM logging parameters
+02/19/2024 06:04:04 AM {
+    "debug": true,
+    "epochs": 1,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 06:04:04 AM starting training
+02/19/2024 06:08:14 AM saving model at Outputs/Experiments/experiment_02-19_06.04.03/model/best_model_0.pth
+02/19/2024 06:08:14 AM loading model for testing from Outputs/Experiments/experiment_02-19_06.04.03/model/best_model.pth
+02/19/2024 06:08:14 AM Testing...
+02/19/2024 06:08:15 AM saving images
+02/19/2024 06:08:15 AM saving images
+02/19/2024 06:08:15 AM saving images
+02/19/2024 06:08:15 AM saving images
+02/19/2024 06:08:16 AM saving images
+02/19/2024 06:08:16 AM saving images
+02/19/2024 06:08:16 AM saving images
+02/19/2024 06:08:16 AM saving images
+02/19/2024 06:08:16 AM saving images
+02/19/2024 06:08:16 AM saving images
+02/19/2024 06:08:16 AM saving images
+02/19/2024 06:08:17 AM saving images
+02/19/2024 06:08:17 AM saving images
+02/19/2024 06:08:17 AM saving images
+02/19/2024 06:08:17 AM saving images
+02/19/2024 06:08:17 AM saving images
+02/19/2024 06:08:17 AM saving images
+02/19/2024 06:08:18 AM saving images
+02/19/2024 06:08:18 AM saving images
+02/19/2024 06:08:18 AM saving images
+02/19/2024 06:08:18 AM saving images
+02/19/2024 06:08:19 AM saving images
+02/19/2024 06:08:19 AM saving images
+02/19/2024 06:08:19 AM saving images
+02/19/2024 06:08:19 AM saving images
+02/19/2024 06:08:19 AM saving images
+02/19/2024 06:08:20 AM saving images
+02/19/2024 06:08:20 AM saving images
+02/19/2024 06:08:20 AM saving images
+02/19/2024 06:08:20 AM saving images
+02/19/2024 06:08:20 AM saving images
+02/19/2024 06:08:21 AM saving images
+02/19/2024 06:08:21 AM saving images
+02/19/2024 06:08:21 AM saving images
+02/19/2024 06:08:21 AM saving images
+02/19/2024 06:08:22 AM saving images
+02/19/2024 06:08:22 AM saving images
+02/19/2024 06:08:22 AM saving images
+02/19/2024 06:08:22 AM saving images
+02/19/2024 06:08:22 AM saving images
+02/19/2024 06:08:22 AM saving images
+02/19/2024 06:08:22 AM saving images
+02/19/2024 06:08:23 AM saving images
+02/19/2024 06:08:23 AM saving images
+02/19/2024 06:08:23 AM saving images
+02/19/2024 06:08:23 AM saving images
+02/19/2024 06:08:23 AM saving images
+02/19/2024 06:08:23 AM saving images
+02/19/2024 06:08:24 AM saving images
+02/19/2024 06:08:24 AM saving images
+02/19/2024 06:08:24 AM saving images
+02/19/2024 06:08:24 AM saving images
+02/19/2024 06:08:25 AM saving images
+02/19/2024 06:08:25 AM saving images
+02/19/2024 06:08:25 AM saving images
+02/19/2024 06:08:25 AM saving images
+02/19/2024 06:08:26 AM saving images
+02/19/2024 06:08:26 AM saving images
+02/19/2024 06:08:26 AM saving images
+02/19/2024 06:08:26 AM saving images
+02/19/2024 06:08:27 AM saving images
+02/19/2024 06:08:27 AM saving images
+02/19/2024 06:08:27 AM saving images
+02/19/2024 06:08:27 AM saving images
+02/19/2024 06:08:27 AM saving images
+02/19/2024 06:08:27 AM saving images
+02/19/2024 06:08:27 AM saving images
+02/19/2024 06:08:27 AM saving images
+02/19/2024 06:08:27 AM saving images
+02/19/2024 06:08:28 AM saving images
+02/19/2024 06:08:28 AM saving images
+02/19/2024 06:08:28 AM saving images
+02/19/2024 06:08:28 AM saving images
+02/19/2024 06:08:28 AM saving images
+02/19/2024 06:08:28 AM saving images
+02/19/2024 06:08:29 AM saving images
+02/19/2024 06:08:29 AM saving images
+02/19/2024 06:08:29 AM saving images
+02/19/2024 06:08:29 AM saving images
+02/19/2024 06:08:30 AM saving images
+02/19/2024 06:08:30 AM saving images
+02/19/2024 06:08:30 AM saving images
+02/19/2024 06:08:30 AM saving images
+02/19/2024 06:08:31 AM saving images
+02/19/2024 06:08:31 AM saving images
+02/19/2024 06:08:31 AM saving images
+02/19/2024 06:08:31 AM Saving Training Stats at Outputs/Experiments/experiment_02-19_06.04.03/loss_log.txt
+02/19/2024 06:08:31 AM Experiment took 0.07 hours
+02/19/2024 06:08:31 AM generting loss and accuracy plot at Outputs/Experiments/experiment_02-19_06.04.03/loss_plot.png
+02/19/2024 06:08:31 AM Experiment End
+02/19/2024 06:11:42 AM 
+
+#################### New Run ####################
+02/19/2024 06:11:44 AM PreRun: Creating required directories
+02/19/2024 06:11:44 AM PreRun: Generating experiment config file
+02/19/2024 06:11:44 AM Using cuda device
+02/19/2024 06:11:44 AM Setting pipilines
+02/19/2024 06:11:44 AM loading encoding model
+02/19/2024 06:11:44 AM loading UNet3Plus
+02/19/2024 06:11:44 AM configuring data loaders
+02/19/2024 06:11:44 AM logging parameters
+02/19/2024 06:11:44 AM {
+    "debug": false,
+    "epochs": 30,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/19/2024 06:11:44 AM starting training
