@@ -83,6 +83,7 @@ def runInference(data, model, device, config, img_type):
 
         _, rslt = torch.max(pred,1)
         _, gt = torch.max(gt,1)
+        _, y = torch.max(y,1)
 
         rslt = rslt.squeeze().type(torch.uint8)
 
@@ -116,7 +117,8 @@ def runInference(data, model, device, config, img_type):
         mAPs.append(average_precision_score(gt.flatten().cpu(), rslt.flatten().cpu()))
         dices.append(dice)
         mious.append(iou)
-        pq_score = calculate_pq(gt, rslt.cpu())
+        #pq_score = calculate_pq(gt.cpu(), rslt.cpu())
+        pq_score = 0
         pqs.append(pq_score)
 
         
@@ -129,12 +131,12 @@ def runInference(data, model, device, config, img_type):
         cv2.imwrite(config['expt_dir']+'inference/'+img_type+'/'+str(i)+'_'+'img.png',images*255)
 
             
-        y = y.squeeze()
-        label_color = result_recolor(y)
+        y = y.cpu().squeeze()
+        label_color = result_recolor(y, config)
         cv2.imwrite(config['expt_dir']+'inference/'+img_type+'/'+str(i)+'_'+'label.png',label_color)
 
         rslt = rslt.squeeze()
-        rslt_color = result_recolor(rslt.cpu().detach().numpy())
+        rslt_color = result_recolor(rslt.cpu().detach().numpy(), config)
         cv2.imwrite(config['expt_dir']+'inference/'+img_type+'/'+str(i)+'_'+str(test_acc.item()/(wid*hit))[:5]+'_'+'predict.png',rslt_color)
     return np.average(accList), np.average(mAPs), np.average(dices), np.average(mious), np.average(aji), np.average(losses), np.average(pqs)
 
@@ -166,7 +168,7 @@ def main():
 
 
     # Set Device
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = "cuda:1" if torch.cuda.is_available() else "cpu"
     logging.debug(f"Using {device} device")
 
     # set weight path
