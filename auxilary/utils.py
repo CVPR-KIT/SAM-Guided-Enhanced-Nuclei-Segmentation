@@ -4,6 +4,7 @@ import json
 import numpy as np
 from torchinfo import summary
 from sklearn.metrics import confusion_matrix
+import sklearn as sk
 
 # Create directory
 def createDir(dirs):
@@ -192,3 +193,29 @@ def calc_dice_score(confusion_matrix):
             continue
         dice_score += 2*intersect / union
     return dice_score / len(confusion_matrix)
+
+def classify_segments(preds, targets, iou_threshold=0.5):
+    tp, fp, fn = 0, 0, len(targets)
+    for pred in preds:
+        matched = False
+        for target in targets:
+            iou = sk.metrics.jaccard_score(pred, target, average='weighted')
+            if iou > iou_threshold:
+                tp += 1
+                matched = True
+                break
+        if matched:
+            fn -= 1
+        else:
+            fp += 1
+    return tp, fp, fn
+
+def calculate_pq(preds, targets, iou_threshold=0.5):
+    tp, fp, fn = classify_segments(preds, targets, iou_threshold)
+    total_iou = sum(sk.metrics.jaccard_score(pred, target, average='weighted') for pred, target in zip(preds, targets) if sk.metrics.jaccard_score(pred, target, average='weighted') > iou_threshold)
+
+    sq = total_iou / tp if tp > 0 else 0
+    dq = tp / (tp + 0.5 * fp + 0.5 * fn)
+    pq = sq * dq
+
+    return pq

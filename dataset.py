@@ -48,8 +48,8 @@ class nucleiDataset(Dataset):
         except:
             print(os.path.join(self.img_dir,str(index)+'_en.pt'))
         
-        print(index)
-        print(samencoding.shape)
+        #print(index)
+        #print(samencoding.shape)
         
         if self.config["input_img_type"] == "rgb":
             image = np.transpose(image, (2, 0, 1))
