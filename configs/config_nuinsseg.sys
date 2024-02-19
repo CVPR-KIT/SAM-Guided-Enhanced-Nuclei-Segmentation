@@ -34,7 +34,7 @@ class2 = "255, 255, 255"                        #white
 
 
 [Training]
-logWandb = "False"                              # Log to Wandb - True or False
+logWandb = "True"                              # Log to Wandb - True or False
 wandbProjectName = "samGuided"                   # Wandb Project Name
 debug = "False"                                 # Debug Mode - True or False: Radically reduces the dataset size for faster training
 trainingDilution =  1000                           # Debug Dilution - number of images to use while training in debug mode
@@ -48,7 +48,7 @@ epochs = 50
 batch_size = 16
 channel = 32
 kernel_size = 3
-learning_rate = 0.0001                         # can be set to "auto" for finding the best learning rate or set to 0.00001
+learning_rate = 0.00001                         # can be set to "auto" for finding the best learning rate or set to 0.00001
 lr_decay = "False"                             # Learning Rate Decay  - True or False
 num_classes = 2
 activation = "GLU"                             # Activations available: relu, GLU
