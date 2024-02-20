@@ -6,6 +6,7 @@ import torch
 import sys
 import matplotlib.pyplot as plt
 import logging
+from auxilary.utils import toBinary
 
 
 class nucleiDataset(Dataset):
@@ -40,6 +41,7 @@ class nucleiDataset(Dataset):
 
         try:
             label = cv2.imread(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'),cv2.IMREAD_GRAYSCALE)
+            label = toBinary(label)
         except:
             print(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'))  
 
@@ -55,10 +57,7 @@ class nucleiDataset(Dataset):
             image = np.transpose(image, (2, 0, 1))
         else:
             image = np.reshape(image,(1,image.shape[0],image.shape[1]))
-
-        
-        label[label==255] = 1
-        label[label==0] = 0
+    
 
         class_0 = np.where(label == 0, 1, 0)  # Channel for class 0
         class_1 = np.where(label == 1, 1, 0)  # Channel for class 1
@@ -112,8 +111,7 @@ class nucleiValDataset(Dataset):
 
         
         label = cv2.imread(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'),cv2.IMREAD_GRAYSCALE)
-        label[label==255] = 1
-        label[label==0] = 0
+        label = toBinary(label)
 
         class_0 = np.where(label == 0, 1, 0)  # Channel for class 0
         class_1 = np.where(label == 1, 1, 0)  # Channel for class 1
@@ -168,10 +166,7 @@ class nucleiTestDataset(Dataset):
         # reshape image
         image = cv2.resize(image, (self.len, self.len), interpolation=cv2.INTER_CUBIC)
         label = cv2.resize(label, (self.len, self.len), interpolation=cv2.INTER_CUBIC)
-        
-        
-        label[label==255] = 1
-        label[label==0] = 0
+        label = toBinary(label)
 
         class_0 = np.where(label == 0, 1, 0)  # Channel for class 0
         class_1 = np.where(label == 1, 1, 0)  # Channel for class 1

@@ -112,22 +112,6 @@ def getPixel(pixelStr):
         pixel.append(int(i))
     return pixel
 
-# To read Organ Info from the json file
-def getOrganInfo(path):
-    '''
-    Read the organ information from the json file
-    path: path to the json file
-    '''
-    # if path doesnt exist, show error
-    if not os.path.exists(path):
-        print('Path to organ json file does not exist. Specified file path: ', path)
-        return
-    
-    # load the json file
-    data = readJson(path)
-    # Mapping image IDs to their organ information
-    organ_info_map = {item["ID"]: item["Organ"] for item in data}
-    return organ_info_map
 
 
 def saveTorchSummary(model, input_size, path="modelSummary.txt"):
@@ -138,6 +122,27 @@ def saveTorchSummary(model, input_size, path="modelSummary.txt"):
     sys.stdout = sys.__stdout__
     #f.close()
 
+def toBinary(grayscale, threshold=150, lower_value=0, upper_value=1):
+    """
+    Convert a grayscale image to a binary image based on a threshold.
+    
+    Parameters:
+    - grayscale (np.ndarray): Input grayscale image with dimensions (h, w).
+    - threshold (int): Threshold value to distinguish between the binary states.
+    - lower_value (int): Value to assign for pixels below the threshold.
+    - upper_value (int): Value to assign for pixels above the threshold.
+    
+    Returns:
+    - np.ndarray: Binary image.
+    """
+    # Initialize an array to hold the binary image.
+    binary_image = np.zeros_like(grayscale, dtype=np.uint8)
+    
+    # Apply threshold.
+    binary_image[grayscale < threshold] = lower_value
+    binary_image[grayscale >= threshold] = upper_value
+    
+    return binary_image
 
 def result_recolor(gray_img, config):
     img = np.zeros((gray_img.shape[0], gray_img.shape[1], 3), np.uint8)
