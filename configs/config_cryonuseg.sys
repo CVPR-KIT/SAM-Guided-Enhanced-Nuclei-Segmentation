@@ -1,22 +1,25 @@
 log = "log/"
 
+[Data Information]
+
+
 [Plot Information]
 plotDir = "Outputs/plots/"
 
 [Pre-Processing]
 useNormalisation = "False"                         # Normalisation
-out_dir = ""         # Output for Sliding Window Augmentation
-augmented_dir = ""              # Output for Augmentation
+out_dir = "/mnt/Datasets/CryoNuSeg/experiment/cv/cv10/"         # Output for Sliding Window Augmentation
+augmented_dir = "/mnt/Datasets/CryoNuSeg/final/cv10/"              # Output for Augmentation
 
 [Augmentation]
-augmentPerImage = 50                           # Number of augmentation to perform per image 
+augmentPerImage = 100                           # Number of augmentation to perform per image 
 finalTileHeight = 256                           # Final Height of augmenated image
 finalTileWidth = 256                            # Final Width of augmenated image
 
 splitRatio = 0.7                                # 0.8 -> 80% training 20% validation
-trainDataset = "/mnt/Datasets/CoNIC/prepared_CoNIC/trainNormal/"                    # Images to be during Training
-valDataset = "/mnt/Datasets/CoNIC/prepared_CoNIC/valNormal/"                        # Images to used during Validation
-testDataset = "/mnt/Datasets/CoNIC/prepared_CoNIC//testNormal/"                      # Images to used during Testing
+trainDataset = "/mnt/Datasets/CryoNuSeg/final/cv10/train/"                    # Images to be during Training
+valDataset = "/mnt/Datasets/CryoNuSeg/final/cv10/val/"                        # Images to used during Validation
+testDataset = "/mnt/Datasets/CryoNuSeg/final/cv10/test/"                      # Images to used during Testing
 
 [Class Config]
 class1 = "0, 0, 0"                              #black
@@ -32,12 +35,12 @@ trainingDilution =  1000                           # Debug Dilution - number of 
 validationDilution = 300                           # Debug Dilution - number of images to use while validation in debug mode
 BaseModel = "UNet3Plus"                                # UNet3Plus 
 SAM_Guided = "True"                             # SAM Guided - True or False
-advancedSAM_Guided = "False"                     # Advanced SAM Guided - True or False
+advancedSAM_Guided = "True"                     # Advanced SAM Guided - True or False
 useWavelet = "False"                            # Use Wavelet - True or False
 
 [Parameters]
 input_img_type = "rgb"                          # Input Image Type: rgb, gray
-epochs = 50
+epochs = 30
 batch_size = 16
 channel = 32
 kernel_size = 3

@@ -36,6 +36,7 @@ validationDilution = 300                           # Debug Dilution - number of 
 BaseModel = "UNet3Plus"                                # UNet3Plus 
 SAM_Guided = "True"                             # SAM Guided - True or False
 advancedSAM_Guided = "True"                     # Advanced SAM Guided - True or False
+useWavelet = "False"                            # Use Wavelet - True or False
 
 [Parameters]
 input_img_type = "rgb"                          # Input Image Type: rgb, gray

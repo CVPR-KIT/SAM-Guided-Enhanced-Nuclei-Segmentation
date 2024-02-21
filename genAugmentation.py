@@ -271,7 +271,8 @@ def performAugmentation(configPath, mode = 'train'):
     tile_height = config["finalTileHeight"]
 
     # Read images and corresponding labels
-    modeList = ['orig_train', 'orig_validation']
+    #modeList = ['orig_train', 'orig_validation']
+    modeList = ['train', 'validation']
     if mode == 'train':
         slidingDir = config["out_dir"]+modeList[0]+"/"
     else:
@@ -381,14 +382,21 @@ def performAugmentation(configPath, mode = 'train'):
 
 def organizeTestImages(configPath):
     config = readConfig(configPath)
-    in_dir = config["out_dir"]+"orig_test/"
+    #in_dir = config["out_dir"]+"orig_test/"
+    in_dir = config["out_dir"]+"test/"
     out_dir = config["augmented_dir"]+"test/"
 
     createDir([out_dir])
 
-    for i in tqdm(range(len(glob.glob(in_dir + "images/*")))):
+    '''for i in tqdm(range(len(glob.glob(in_dir + "images/*")))):
         shutil.copy(in_dir + "images/" + str(i) + ".png", out_dir + str(i) + ".png")
-        shutil.copy(in_dir + "labels/" + str(i) + ".png", out_dir + str(i) + "_label.png")
+        shutil.copy(in_dir + "labels/" + str(i) + ".png", out_dir + str(i) + "_label.png")'''
+    
+    for idx, img in enumerate(glob.glob(in_dir + "images/*")):
+        shutil.copy(img, out_dir + str(idx) + ".png")
+        
+    for idx, label in enumerate(glob.glob(in_dir + "labels/*")):
+        shutil.copy(label, out_dir + str(idx) + "_label.png")
 
 if __name__ == '__main__':
     

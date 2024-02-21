@@ -41,6 +41,7 @@ trainingDilution =  1000                           # Debug Dilution - number of 
 validationDilution = 300                           # Debug Dilution - number of images to use while validation in debug mode
 BaseModel = "UNet3Plus"                                # UNet3Plus 
 SAM_Guided = "True"                             # SAM Guided - True or False
+useWavelet = "False"                            # Use Wavelet - True or False
 
 [Parameters]
 input_img_type = "rgb"                          # Input Image Type: rgb, gray
