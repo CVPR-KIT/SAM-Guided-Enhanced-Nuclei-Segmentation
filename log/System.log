@@ -4134,3 +4134,213 @@
 02/20/2024 02:46:24 AM starting training
 02/20/2024 11:56:33 AM saving model at Outputs/Experiments/experiment_02-20_02.46.23/model/best_model_0.pth
 02/22/2024 01:45:24 AM saving model at Outputs/Experiments/experiment_02-20_02.46.23/model/best_model_5.pth
+02/22/2024 07:19:14 AM 
+
+#################### New Run ####################
+02/22/2024 07:19:16 AM PreRun: Creating required directories
+02/22/2024 07:19:16 AM PreRun: Generating experiment config file
+02/22/2024 07:19:16 AM Using cuda device
+02/22/2024 07:19:16 AM Setting pipilines
+02/22/2024 07:19:16 AM loading encoding model
+02/22/2024 07:19:16 AM loading UNet3Plus
+02/22/2024 07:19:16 AM configuring data loaders
+02/22/2024 07:19:17 AM logging parameters
+02/22/2024 07:19:17 AM {
+    "debug": false,
+    "epochs": 30,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/22/2024 07:19:17 AM starting training
+02/22/2024 08:25:11 AM 
+
+#################### New Run ####################
+02/22/2024 08:25:13 AM PreRun: Creating required directories
+02/22/2024 08:25:13 AM PreRun: Generating experiment config file
+02/22/2024 08:25:13 AM Using cuda device
+02/22/2024 08:25:13 AM Setting pipilines
+02/22/2024 08:25:13 AM loading encoding model
+02/22/2024 08:25:13 AM loading UNet3Plus
+02/22/2024 08:25:13 AM configuring data loaders
+02/22/2024 08:25:14 AM logging parameters
+02/22/2024 08:25:14 AM {
+    "debug": false,
+    "epochs": 30,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/22/2024 08:25:14 AM starting training
+02/22/2024 08:30:43 AM saving model at Outputs/Experiments/experiment_02-22_08.25.13/model/best_model_0.pth
+02/22/2024 10:12:47 AM loading model for testing from Outputs/Experiments/experiment_02-22_08.25.13/model/best_model.pth
+02/22/2024 10:12:47 AM Testing...
+02/22/2024 10:12:47 AM saving images
+02/22/2024 10:12:48 AM saving images
+02/22/2024 10:12:48 AM saving images
+02/22/2024 10:12:48 AM Saving Training Stats at Outputs/Experiments/experiment_02-22_08.25.13/loss_log.txt
+02/22/2024 10:12:48 AM Experiment took 1.79 hours
+02/22/2024 10:12:48 AM generting loss and accuracy plot at Outputs/Experiments/experiment_02-22_08.25.13/loss_plot.png
+02/22/2024 10:12:48 AM Experiment End
+02/22/2024 12:50:50 PM 
+
+#################### New Run ####################
+02/22/2024 12:50:53 PM PreRun: Creating required directories
+02/22/2024 12:50:53 PM PreRun: Generating experiment config file
+02/22/2024 12:50:53 PM Using cuda device
+02/22/2024 12:50:53 PM Setting pipilines
+02/22/2024 12:50:53 PM loading encoding model
+02/22/2024 12:50:53 PM loading UNet3Plus
+02/22/2024 12:50:53 PM configuring data loaders
+02/22/2024 12:50:53 PM logging parameters
+02/22/2024 12:50:53 PM {
+    "debug": false,
+    "epochs": 30,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/22/2024 12:50:53 PM starting training
+02/22/2024 12:56:12 PM saving model at Outputs/Experiments/experiment_02-22_12.50.53/model/best_model_0.pth
+02/22/2024 01:31:07 PM saving model at Outputs/Experiments/experiment_02-22_12.50.53/model/best_model_10.pth
+02/22/2024 02:39:32 PM loading model for testing from Outputs/Experiments/experiment_02-22_12.50.53/model/best_model.pth
+02/22/2024 02:39:32 PM Testing...
+02/22/2024 02:39:33 PM saving images
+02/22/2024 02:39:33 PM saving images
+02/22/2024 02:39:33 PM saving images
+02/22/2024 02:39:33 PM Saving Training Stats at Outputs/Experiments/experiment_02-22_12.50.53/loss_log.txt
+02/22/2024 02:39:33 PM Experiment took 1.81 hours
+02/22/2024 02:39:33 PM generting loss and accuracy plot at Outputs/Experiments/experiment_02-22_12.50.53/loss_plot.png
+02/22/2024 02:39:33 PM Experiment End
+02/22/2024 03:11:55 PM 
+
+#################### New Run ####################
+02/22/2024 03:12:02 PM PreRun: Creating required directories
+02/22/2024 03:12:02 PM PreRun: Generating experiment config file
+02/22/2024 03:12:02 PM Using cuda device
+02/22/2024 03:12:02 PM Setting pipilines
+02/22/2024 03:12:02 PM loading encoding model
+02/22/2024 03:12:02 PM loading UNet3Plus
+02/22/2024 03:12:02 PM configuring data loaders
+02/22/2024 03:12:03 PM logging parameters
+02/22/2024 03:12:03 PM {
+    "debug": false,
+    "epochs": 30,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/22/2024 03:12:03 PM starting training
+02/22/2024 03:37:12 PM saving model at Outputs/Experiments/experiment_02-22_15.12.02/model/best_model_0.pth
+02/22/2024 03:56:25 PM saving model at Outputs/Experiments/experiment_02-22_15.12.02/model/best_model_5.pth
+02/22/2024 04:13:44 PM saving model at Outputs/Experiments/experiment_02-22_15.12.02/model/best_model_10.pth
+02/22/2024 04:31:18 PM saving model at Outputs/Experiments/experiment_02-22_15.12.02/model/best_model_15.pth
+02/22/2024 05:21:34 PM loading model for testing from Outputs/Experiments/experiment_02-22_15.12.02/model/best_model.pth
+02/22/2024 05:21:34 PM Testing...
+02/22/2024 05:21:35 PM saving images
+02/22/2024 05:21:35 PM saving images
+02/22/2024 05:21:36 PM saving images
+02/22/2024 05:21:36 PM Saving Training Stats at Outputs/Experiments/experiment_02-22_15.12.02/loss_log.txt
+02/22/2024 05:21:36 PM Experiment took 2.16 hours
+02/22/2024 05:21:36 PM generting loss and accuracy plot at Outputs/Experiments/experiment_02-22_15.12.02/loss_plot.png
+02/22/2024 05:21:36 PM Experiment End
+02/22/2024 06:36:49 PM 
+
+#################### New Run ####################
+02/22/2024 06:36:51 PM PreRun: Creating required directories
+02/22/2024 06:36:51 PM PreRun: Generating experiment config file
+02/22/2024 06:36:51 PM Using cuda device
+02/22/2024 06:36:51 PM Setting pipilines
+02/22/2024 06:36:51 PM loading encoding model
+02/22/2024 06:36:51 PM loading UNet3Plus
+02/22/2024 06:36:51 PM configuring data loaders
+02/22/2024 06:36:52 PM logging parameters
+02/22/2024 06:36:52 PM {
+    "debug": false,
+    "epochs": 30,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/22/2024 06:36:52 PM starting training
+02/22/2024 06:48:57 PM saving model at Outputs/Experiments/experiment_02-22_18.36.51/model/best_model_0.pth
+02/22/2024 07:20:28 PM saving model at Outputs/Experiments/experiment_02-22_18.36.51/model/best_model_5.pth
+02/22/2024 07:37:41 PM saving model at Outputs/Experiments/experiment_02-22_18.36.51/model/best_model_10.pth
+02/22/2024 08:30:36 PM saving model at Outputs/Experiments/experiment_02-22_18.36.51/model/best_model_25.pth
+02/22/2024 08:44:32 PM loading model for testing from Outputs/Experiments/experiment_02-22_18.36.51/model/best_model.pth
+02/22/2024 08:44:32 PM Testing...
+02/22/2024 08:44:33 PM saving images
+02/22/2024 08:44:34 PM saving images
+02/22/2024 08:44:34 PM saving images
+02/22/2024 08:44:34 PM Saving Training Stats at Outputs/Experiments/experiment_02-22_18.36.51/loss_log.txt
+02/22/2024 08:44:34 PM Experiment took 2.13 hours
+02/22/2024 08:44:34 PM generting loss and accuracy plot at Outputs/Experiments/experiment_02-22_18.36.51/loss_plot.png
+02/22/2024 08:44:34 PM Experiment End
+02/23/2024 12:22:39 AM 
+
+#################### New Run ####################
+02/23/2024 12:22:41 AM PreRun: Creating required directories
+02/23/2024 12:22:41 AM PreRun: Generating experiment config file
+02/23/2024 12:22:41 AM Using cuda device
+02/23/2024 12:22:41 AM Setting pipilines
+02/23/2024 12:22:41 AM loading encoding model
+02/23/2024 12:22:41 AM loading UNet3Plus
+02/23/2024 12:22:42 AM configuring data loaders
+02/23/2024 12:22:42 AM logging parameters
+02/23/2024 12:22:42 AM {
+    "debug": false,
+    "epochs": 30,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/23/2024 12:22:42 AM starting training
+02/23/2024 12:28:06 AM saving model at Outputs/Experiments/experiment_02-23_00.22.41/model/best_model_0.pth
+02/23/2024 12:49:59 AM saving model at Outputs/Experiments/experiment_02-23_00.22.41/model/best_model_5.pth
+02/23/2024 01:11:54 AM saving model at Outputs/Experiments/experiment_02-23_00.22.41/model/best_model_10.pth
+02/23/2024 02:11:04 AM saving model at Outputs/Experiments/experiment_02-23_00.22.41/model/best_model_25.pth
+02/23/2024 02:30:52 AM loading model for testing from Outputs/Experiments/experiment_02-23_00.22.41/model/best_model.pth
+02/23/2024 02:30:53 AM Testing...
+02/23/2024 02:30:53 AM saving images
+02/23/2024 02:30:54 AM saving images
+02/23/2024 02:30:55 AM saving images
+02/23/2024 02:30:55 AM Saving Training Stats at Outputs/Experiments/experiment_02-23_00.22.41/loss_log.txt
+02/23/2024 02:30:55 AM Experiment took 2.14 hours
+02/23/2024 02:30:55 AM generting loss and accuracy plot at Outputs/Experiments/experiment_02-23_00.22.41/loss_plot.png
+02/23/2024 02:30:55 AM Experiment End
+02/23/2024 07:17:31 AM 
+
+#################### New Run ####################
+02/23/2024 07:17:34 AM PreRun: Creating required directories
+02/23/2024 07:17:34 AM PreRun: Generating experiment config file
+02/23/2024 07:17:34 AM Using cuda device
+02/23/2024 07:17:34 AM Setting pipilines
+02/23/2024 07:17:34 AM loading encoding model
+02/23/2024 07:17:34 AM loading UNet3Plus
+02/23/2024 07:17:35 AM configuring data loaders
+02/23/2024 07:17:35 AM logging parameters
+02/23/2024 07:17:35 AM {
+    "debug": false,
+    "epochs": 30,
+    "learning_rate": 1e-05,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "loss": "focaldice",
+    "activation": "GLU"
+}
+02/23/2024 07:17:35 AM starting training
+02/23/2024 07:43:19 AM saving model at Outputs/Experiments/experiment_02-23_07.17.34/model/best_model_0.pth
+02/23/2024 08:42:27 AM saving model at Outputs/Experiments/experiment_02-23_07.17.34/model/best_model_10.pth
+02/23/2024 09:00:15 AM saving model at Outputs/Experiments/experiment_02-23_07.17.34/model/best_model_15.pth

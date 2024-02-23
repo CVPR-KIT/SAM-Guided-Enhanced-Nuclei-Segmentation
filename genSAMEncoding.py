@@ -20,9 +20,9 @@ if __name__ == '__main__':
     valDir = '/mnt/Datasets/NuInsSeg/final/val/'
     testDir = '/mnt/Datasets/NuInsSeg/final/test/'''
 
-    trainDir = '/mnt/Datasets/CoNIC/prepared_CoNIC/trainNormal/'
-    valDir = '/mnt/Datasets/CoNIC/prepared_CoNIC/valNormal/'
-    testDir = '/mnt/Datasets/CoNIC/prepared_CoNIC/testNormal/'
+    trainDir = '/mnt/Datasets/CryoNuSeg/final/cv10/train/'
+    valDir = '/mnt/Datasets/CryoNuSeg/final/cv10/val/'
+    testDir = '/mnt/Datasets/CryoNuSeg/final/cv10/test/'
 
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
