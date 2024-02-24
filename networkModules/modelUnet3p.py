@@ -5,6 +5,7 @@ import torch.nn.functional as F
 from networkModules.conv_modules_unet3p import unetConv2, BlurPool2D, MaxBlurPool2d, SEBlock
 from networkModules.init_weights import init_weights
 import sys
+from guided_filter_pytorch.guided_filter import FastGuidedFilter
 '''
     UNet 3+
 '''
@@ -29,6 +30,13 @@ class UNet_3Plus(nn.Module):
         self.reduction_ratio = 16
 
         self.dropoutFlag = False
+        
+        try :
+            self.useGuidedFilter = config["use_guidedFilter"]
+        except:
+            self.useGuidedFilter = False
+
+        self.guided_filter_module = FastGuidedFilter(r=2, eps=1e-2)
 
         # self.ch, original paper uses channel size of 64, while we use 16
         # uses relu activation by default

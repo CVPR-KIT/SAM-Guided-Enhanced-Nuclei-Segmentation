@@ -140,7 +140,7 @@ def main():
     sys.stdout = sys.__stdout__
 
     # Set cuda device
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
 
 
