@@ -49,7 +49,7 @@ def calculate_class_weights(targets, num_classes):
 
 
     
-def runInference(data, model, device, config, img_type):
+def runInference(data, model, device, config, img_type, saveImages = False):
     accList = []
     count= 0
     mAPs = []
@@ -126,18 +126,18 @@ def runInference(data, model, device, config, img_type):
         ji = jaccard_score(y.cpu().detach().numpy().reshape(-1), rslt.cpu().detach().numpy().reshape(-1))
         aji.append(ji)
 
-
-        images = images.cpu().detach().numpy()
-        cv2.imwrite(config['expt_dir']+'inference/'+img_type+'/'+str(i)+'_'+'img.png',images*255)
+        if saveImages:
+            images = images.cpu().detach().numpy()
+            cv2.imwrite(config['expt_dir']+'inference/'+img_type+'/'+str(i)+'_'+'img.png',images*255)
 
             
-        y = y.cpu().squeeze()
-        label_color = result_recolor(y, config)
-        cv2.imwrite(config['expt_dir']+'inference/'+img_type+'/'+str(i)+'_'+'label.png',label_color)
+            y = y.cpu().squeeze()
+            label_color = result_recolor(y, config)
+            cv2.imwrite(config['expt_dir']+'inference/'+img_type+'/'+str(i)+'_'+'label.png',label_color)
 
-        rslt = rslt.squeeze()
-        rslt_color = result_recolor(rslt.cpu().detach().numpy(), config)
-        cv2.imwrite(config['expt_dir']+'inference/'+img_type+'/'+str(i)+'_'+str(test_acc.item()/(wid*hit))[:5]+'_'+'predict.png',rslt_color)
+            rslt = rslt.squeeze()
+            rslt_color = result_recolor(rslt.cpu().detach().numpy(), config)
+            cv2.imwrite(config['expt_dir']+'inference/'+img_type+'/'+str(i)+'_'+str(test_acc.item()/(wid*hit))[:5]+'_'+'predict.png',rslt_color)
     return np.average(accList), np.average(mAPs), np.average(dices), np.average(mious), np.average(aji), np.average(losses), np.average(pqs)
 
 
@@ -148,7 +148,7 @@ def runInference(data, model, device, config, img_type):
     4. save result
 '''
 
-def main(expt_dir):
+def main(expt_dir, saveImages = True):
     # Load Config
     
 
@@ -164,11 +164,11 @@ def main(expt_dir):
 
 
     # Set Device
-    device = "cuda:1" if torch.cuda.is_available() else "cpu"
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
     logging.debug(f"Using {device} device")
 
     # set weight path
-    weight_path = args.expt_dir + "model/best_model.pth"
+    weight_path = expt_dir + "model/best_model.pth"
     # check if weight path exists
     if not os.path.exists(weight_path):
         print("Please specify valid model type")
@@ -197,13 +197,14 @@ def main(expt_dir):
     f = open(config["log"] + "inferences.csv", "a")
 
 
+    exportData = None
     paths = [(config["testDataset"], 'testData')]
     for path, img_type in paths:
         # Load Dataset
         logging.info("Loading dataset")
         dataset = nucleiTestDataset(path, config)
         data = DataLoader(dataset,batch_size=1)
-        acc, mAP, mdice, miou, aji, meanloss, mpq = runInference(data, model, device, config, img_type)
+        acc, mAP, mdice, miou, aji, meanloss, mpq = runInference(data, model, device, config, img_type, saveImages)
         f.write(f"{expt_dir},{img_type},{np.average(acc)} \n")
         print(f"Testing Accuracy -{expt_dir}-{img_type}- {acc} \n")
         print(f"Testing mAP -{expt_dir}-{img_type}- {mAP} \n")
@@ -212,10 +213,13 @@ def main(expt_dir):
         print(f"Testing mean Loss -{expt_dir}-{img_type}- {meanloss} \n")
         print(f"Testing PQ -{expt_dir}-{img_type}- {mpq} \n")
            # print(f"Testing AJI -{args.expt_dir}-{img_type}- {aji} \n")
+        #zip values and return
+        exportData = (acc, mAP, mdice, miou, aji, meanloss, mpq)
 
 
     
     f.close()
+    return exportData
 
     
 if __name__ == '__main__':
@@ -228,4 +232,4 @@ if __name__ == '__main__':
         print("Please specify experiment directory")
         sys.exit(1)
 
-    main(args.expt_dir)
+    data = main(args.expt_dir, saveImages = True)

@@ -271,8 +271,8 @@ def performAugmentation(configPath, mode = 'train'):
     tile_height = config["finalTileHeight"]
 
     # Read images and corresponding labels
-    #modeList = ['orig_train', 'orig_validation']
-    modeList = ['train', 'validation']
+    modeList = ['orig_train', 'orig_validation']
+    #modeList = ['train', 'validation']
     if mode == 'train':
         slidingDir = config["out_dir"]+modeList[0]+"/"
     else:
@@ -310,6 +310,9 @@ def performAugmentation(configPath, mode = 'train'):
         raw_image = cv2.imread(raw_imgs[i], cv2.IMREAD_COLOR)
         label = cv2.imread(labeled_imgs[i], cv2.IMREAD_GRAYSCALE)
 
+        # skip if @earDir
+        if "eaDir" in raw_imgs[i]:
+            continue
 
         if run_once:
             logging.debug("raw image size:" + str(raw_image.shape))
@@ -319,7 +322,7 @@ def performAugmentation(configPath, mode = 'train'):
         # Set random probabilities
         flip_random = np.random.uniform(size=augment_num_per_img)  # [0,1]
         rotate_random = np.random.randint(low=0, high=360, size=augment_num_per_img)  # [0, 360]
-        magnify_random = np.random.uniform(low=1, high=1.5, size=augment_num_per_img)  # [1, 1.5]
+        magnify_random = np.random.uniform(low=1, high=2, size=augment_num_per_img)  # [1, 1.5]
         elastic_random = np.random.uniform(size=augment_num_per_img)  # [0, 1]
         noise_random = np.random.uniform(size=augment_num_per_img)  # [0, 1]
 
@@ -382,8 +385,8 @@ def performAugmentation(configPath, mode = 'train'):
 
 def organizeTestImages(configPath):
     config = readConfig(configPath)
-    #in_dir = config["out_dir"]+"orig_test/"
-    in_dir = config["out_dir"]+"test/"
+    in_dir = config["out_dir"]+"orig_test/"
+    #in_dir = config["out_dir"]+"test/"
     out_dir = config["augmented_dir"]+"test/"
 
     createDir([out_dir])

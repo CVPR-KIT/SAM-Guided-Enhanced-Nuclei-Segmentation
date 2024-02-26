@@ -44,31 +44,31 @@ class UNet_3Plus(nn.Module):
         #filters = [64, 128, 256, 512, 1024]
 
         ## -------------Encoder--------------
-        self.conv1 = unetConv2(self.in_channels, filters[0], self.is_batchnorm, ks=self.kernel_size)
+        self.conv1 = unetConv2(self.in_channels, filters[0], self.is_batchnorm, ks=self.kernel_size, act=config["activation"])
         if self.useMaxBPool:
             self.maxpool1 = MaxBlurPool2d(kernel_size=2)
         else:
             self.maxpool1 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv2 = unetConv2(filters[0], filters[1], self.is_batchnorm, ks=self.kernel_size)
+        self.conv2 = unetConv2(filters[0], filters[1], self.is_batchnorm, ks=self.kernel_size, act=config["activation"])
         if self.useMaxBPool:
             self.maxpool2 = MaxBlurPool2d(kernel_size=2)
         else:
             self.maxpool2 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv3 = unetConv2(filters[1], filters[2], self.is_batchnorm, ks=self.kernel_size)
+        self.conv3 = unetConv2(filters[1], filters[2], self.is_batchnorm, ks=self.kernel_size, act=config["activation"])
         if self.useMaxBPool:
             self.maxpool3 = MaxBlurPool2d(kernel_size=2)    
         else:
             self.maxpool3 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv4 = unetConv2(filters[2], filters[3], self.is_batchnorm, ks=self.kernel_size)
+        self.conv4 = unetConv2(filters[2], filters[3], self.is_batchnorm, ks=self.kernel_size, act=config["activation"])
         if self.useMaxBPool:
             self.maxpool4 = MaxBlurPool2d(kernel_size=2)
         else:
             self.maxpool4 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv5 = unetConv2(filters[3], filters[4], self.is_batchnorm, ks=self.kernel_size)
+        self.conv5 = unetConv2(filters[3], filters[4], self.is_batchnorm, ks=self.kernel_size, act=config["activation"])
 
         self.samMaxPool = MaxBlurPool2d(kernel_size=2)
 
