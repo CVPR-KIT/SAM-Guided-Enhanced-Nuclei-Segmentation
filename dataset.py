@@ -40,7 +40,7 @@ class nucleiDataset(Dataset):
             print(os.path.join(self.img_dir,str(index)+'.png'))     
 
         try:
-            label = cv2.imread(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'),cv2.IMREAD_GRAYSCALE)
+            label = cv2.imread(os.path.join(self.img_dir,str(index)+'_label'+'.png'),cv2.IMREAD_GRAYSCALE)
             label = toBinary(label)
         except:
             print(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'))  
@@ -110,7 +110,7 @@ class nucleiValDataset(Dataset):
             print(os.path.join(self.img_dir,str(index)+'_en.pt'))
 
         
-        label = cv2.imread(os.path.join(self.img_dir,str(index+1)+'_label'+'.png'),cv2.IMREAD_GRAYSCALE)
+        label = cv2.imread(os.path.join(self.img_dir,str(index)+'_label'+'.png'),cv2.IMREAD_GRAYSCALE)
         label = toBinary(label)
 
         class_0 = np.where(label == 0, 1, 0)  # Channel for class 0
