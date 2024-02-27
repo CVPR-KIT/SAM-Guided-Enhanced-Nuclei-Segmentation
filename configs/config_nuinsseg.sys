@@ -34,13 +34,13 @@ debug = "False"                                 # Debug Mode - True or False: Ra
 trainingDilution =  1000                           # Debug Dilution - number of images to use while training in debug mode
 validationDilution = 300                           # Debug Dilution - number of images to use while validation in debug mode
 BaseModel = "UNet3Plus"                                # UNet3Plus 
-SAM_Guided = "False"                             # SAM Guided - True or False
+SAM_Guided = "True"                             # SAM Guided - True or False
 advancedSAM_Guided = "False"                     # Advanced SAM Guided - True or False
 useWavelet = "False"                            # Use Wavelet - True or False
 
 [Parameters]
 input_img_type = "rgb"                          # Input Image Type: rgb, gray
-epochs = 30
+epochs = 50
 batch_size = 16
 channel = 32
 kernel_size = 3
