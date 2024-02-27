@@ -40,7 +40,7 @@ useWavelet = "False"                            # Use Wavelet - True or False
 
 [Parameters]
 input_img_type = "rgb"                          # Input Image Type: rgb, gray
-epochs = 30
+epochs = 50
 batch_size = 16
 channel = 32
 kernel_size = 3
@@ -51,3 +51,4 @@ activation = "GLU"                             # Activations available: relu, GL
 loss = "focaldice"                           # weighteddice, focaldice
 dropout = 0.3
 use_maxblurpool = "True"                       # Use MaxBlurPool - True or False 
+use_guidedFilter = "True"                      # Use Guided Filter - True or False
