@@ -336,31 +336,31 @@ class UNet_3Plus(nn.Module):
         #print("h4", h4.shape)
         #print("hd5", hd5.shape)
         #print("SAM_Enc", SAM_Enc.shape)
+        if self.samGuided:
+            samcd = self.samMaxPool(SAM_Enc)
+            samcd = self.samMaxPool(samcd)
+            #print("SAM_cd", samcd.shape)
+            # concat shapes of 1, 256, 16, 16 with 1, 256, 64, 64
+            combined = torch.cat((hd5, samcd), 1)
+            #print("Combined=",combined.shape)
 
-        samcd = self.samMaxPool(SAM_Enc)
-        samcd = self.samMaxPool(samcd)
-        #print("SAM_cd", samcd.shape)
-        # concat shapes of 1, 256, 16, 16 with 1, 256, 64, 64
-        combined = torch.cat((hd5, samcd), 1)
-        #print("Combined=",combined.shape)
+            gatingWeights = self.squeeze_excite_h5(combined)
+            #print("GatingWeights=",gatingWeights.shape)
 
-        gatingWeights = self.squeeze_excite_h5(combined)
-        #print("GatingWeights=",gatingWeights.shape)
+            gatedFeatures = gatingWeights * hd5
+            #print("GatedFeatures=",gatedFeatures.shape)
 
-        gatedFeatures = gatingWeights * hd5
-        #print("GatedFeatures=",gatedFeatures.shape)
+            batch_size, channels, height, width = gatedFeatures.shape
+            gated_unet_features_flat = gatedFeatures.view(batch_size, channels, -1).permute(0, 2, 1)
+            unet_features_flat = gatedFeatures.view(batch_size, channels, -1).permute(0, 2, 1)
 
-        batch_size, channels, height, width = gatedFeatures.shape
-        gated_unet_features_flat = gatedFeatures.view(batch_size, channels, -1).permute(0, 2, 1)
-        unet_features_flat = gatedFeatures.view(batch_size, channels, -1).permute(0, 2, 1)
+            # Apply cross-attention
+            attention_output, _ = self.cross_attention_h5(query=gated_unet_features_flat, key=unet_features_flat, value=unet_features_flat)
+            attention_output = attention_output.permute(0, 2, 1).view(batch_size, channels, height, width)
 
-        # Apply cross-attention
-        attention_output, _ = self.cross_attention_h5(query=gated_unet_features_flat, key=unet_features_flat, value=unet_features_flat)
-        attention_output = attention_output.permute(0, 2, 1).view(batch_size, channels, height, width)
+            #print("AttentionOutput=",attention_output.shape)
 
-        #print("AttentionOutput=",attention_output.shape)
-
-        hd5 = attention_output
+            hd5 = attention_output
         
 
         # dropout

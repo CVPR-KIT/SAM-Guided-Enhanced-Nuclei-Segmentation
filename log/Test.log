@@ -206,3 +206,19 @@
 02/26/2024 04:17:55 AM Loading checkpoints
 02/26/2024 04:17:55 AM Starting evaluations
 02/26/2024 04:17:55 AM Loading dataset
+02/28/2024 05:45:08 AM Testing Initiated
+02/28/2024 05:45:08 AM PreRun: Creating required directories
+02/28/2024 05:45:08 AM Weight Path: Outputs/Experiments/experiment_02-27_09.23.48/model/best_model.pth
+02/28/2024 05:45:08 AM Starting Inference
+02/28/2024 05:45:08 AM Loading Model at Outputs/Experiments/experiment_02-27_09.23.48/model/best_model.pth
+02/28/2024 05:45:08 AM Loading checkpoints
+02/28/2024 05:45:08 AM Starting evaluations
+02/28/2024 05:45:08 AM Loading dataset
+02/28/2024 05:45:59 AM Testing Initiated
+02/28/2024 05:45:59 AM PreRun: Creating required directories
+02/28/2024 05:45:59 AM Weight Path: Outputs/Experiments/experiment_02-27_09.24.45/model/best_model.pth
+02/28/2024 05:45:59 AM Starting Inference
+02/28/2024 05:45:59 AM Loading Model at Outputs/Experiments/experiment_02-27_09.24.45/model/best_model.pth
+02/28/2024 05:45:59 AM Loading checkpoints
+02/28/2024 05:45:59 AM Starting evaluations
+02/28/2024 05:45:59 AM Loading dataset
