@@ -222,3 +222,25 @@
 02/28/2024 05:45:59 AM Loading checkpoints
 02/28/2024 05:45:59 AM Starting evaluations
 02/28/2024 05:45:59 AM Loading dataset
+03/04/2024 11:03:36 PM Testing Initiated
+03/04/2024 11:03:36 PM PreRun: Creating required directories
+03/04/2024 11:03:36 PM Weight Path: /mnt/BishalFiles/SamGuided/saves/nuinsseg_wSAM/model/best_model.pth
+03/04/2024 11:03:36 PM Starting Inference
+03/04/2024 11:03:36 PM Loading Model at /mnt/BishalFiles/SamGuided/saves/nuinsseg_wSAM/model/best_model.pth
+03/04/2024 11:03:37 PM Loading checkpoints
+03/04/2024 11:03:37 PM Starting evaluations
+03/04/2024 11:03:37 PM Loading dataset
+03/04/2024 11:05:26 PM Testing Initiated
+03/04/2024 11:05:26 PM PreRun: Creating required directories
+03/04/2024 11:05:26 PM Weight Path: /mnt/BishalFiles/SamGuided/saves/nuinsseg_wSAM/model/best_model.pth
+03/04/2024 11:05:26 PM Starting Inference
+03/04/2024 11:05:26 PM Loading Model at /mnt/BishalFiles/SamGuided/saves/nuinsseg_wSAM/model/best_model.pth
+03/04/2024 11:05:27 PM Loading checkpoints
+03/04/2024 11:05:27 PM Starting evaluations
+03/04/2024 11:05:27 PM Loading dataset
+03/04/2024 11:06:02 PM Testing Initiated
+03/04/2024 11:06:02 PM PreRun: Creating required directories
+03/04/2024 11:06:02 PM Weight Path: /mnt/BishalFiles/SamGuided/saves/nuinsseg_noSAM/model/best_model.pth
+03/04/2024 11:06:02 PM Starting Inference
+03/04/2024 11:06:02 PM Loading Model at /mnt/BishalFiles/SamGuided/saves/nuinsseg_noSAM/model/best_model.pth
+03/04/2024 11:06:02 PM Loading checkpoints

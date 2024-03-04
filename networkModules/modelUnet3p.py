@@ -328,7 +328,14 @@ class UNet_3Plus(nn.Module):
         h5 = self.maxpool4(h4)
         hd5 = self.conv5(h5)  # h5->512*16*16
 
+        # save Encoding - 
+        torch.save(h1, "1-h1.pt")
+        torch.save(h2, "2-h2.pt")
+        torch.save(h3, "3-h3.pt")
+        torch.save(h4, "4-h4.pt")
+        torch.save(hd5, "5-hd5.pt")
         #return h1, h2, h3, h4, hd5
+        torch.save(SAM_Enc, "6-SAM_Enc.pt")
 
         #print("h1", h1.shape)
         #print("h2", h2.shape)
@@ -343,24 +350,29 @@ class UNet_3Plus(nn.Module):
             # concat shapes of 1, 256, 16, 16 with 1, 256, 64, 64
             combined = torch.cat((hd5, samcd), 1)
             #print("Combined=",combined.shape)
+            torch.save(combined, "7-combined.pt")
 
             gatingWeights = self.squeeze_excite_h5(combined)
             #print("GatingWeights=",gatingWeights.shape)
+            torch.save(gatingWeights, "8-gatingWeights.pt")
 
             gatedFeatures = gatingWeights * hd5
             #print("GatedFeatures=",gatedFeatures.shape)
+            torch.save(gatedFeatures, "9-gatedFeatures.pt")
 
             batch_size, channels, height, width = gatedFeatures.shape
             gated_unet_features_flat = gatedFeatures.view(batch_size, channels, -1).permute(0, 2, 1)
-            unet_features_flat = gatedFeatures.view(batch_size, channels, -1).permute(0, 2, 1)
+            unet_features_flat = hd5.view(batch_size, channels, -1).permute(0, 2, 1)
 
             # Apply cross-attention
             attention_output, _ = self.cross_attention_h5(query=gated_unet_features_flat, key=unet_features_flat, value=unet_features_flat)
             attention_output = attention_output.permute(0, 2, 1).view(batch_size, channels, height, width)
 
             #print("AttentionOutput=",attention_output.shape)
+            torch.save(attention_output, "10-crossAttention.pt")
 
             hd5 = attention_output
+
         
 
         # dropout
