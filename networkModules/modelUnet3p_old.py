@@ -5,7 +5,6 @@ import torch.nn.functional as F
 from networkModules.conv_modules_unet3p import unetConv2, BlurPool2D, MaxBlurPool2d, SEBlock
 from networkModules.init_weights import init_weights
 import sys
-from guided_filter_pytorch.guided_filter import FastGuidedFilter
 '''
     UNet 3+
 '''
@@ -30,13 +29,6 @@ class UNet_3Plus(nn.Module):
         self.reduction_ratio = 16
 
         self.dropoutFlag = False
-        
-        try :
-            self.useGuidedFilter = config["use_guidedFilter"]
-        except:
-            self.useGuidedFilter = False
-
-        self.guided_filter_module = FastGuidedFilter(r=2, eps=1e-2)
 
         # self.ch, original paper uses channel size of 64, while we use 16
         # uses relu activation by default
@@ -44,31 +36,31 @@ class UNet_3Plus(nn.Module):
         #filters = [64, 128, 256, 512, 1024]
 
         ## -------------Encoder--------------
-        self.conv1 = unetConv2(self.in_channels, filters[0], self.is_batchnorm, ks=self.kernel_size, act=config["activation"])
+        self.conv1 = unetConv2(self.in_channels, filters[0], self.is_batchnorm, ks=self.kernel_size)
         if self.useMaxBPool:
             self.maxpool1 = MaxBlurPool2d(kernel_size=2)
         else:
             self.maxpool1 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv2 = unetConv2(filters[0], filters[1], self.is_batchnorm, ks=self.kernel_size, act=config["activation"])
+        self.conv2 = unetConv2(filters[0], filters[1], self.is_batchnorm, ks=self.kernel_size)
         if self.useMaxBPool:
             self.maxpool2 = MaxBlurPool2d(kernel_size=2)
         else:
             self.maxpool2 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv3 = unetConv2(filters[1], filters[2], self.is_batchnorm, ks=self.kernel_size, act=config["activation"])
+        self.conv3 = unetConv2(filters[1], filters[2], self.is_batchnorm, ks=self.kernel_size)
         if self.useMaxBPool:
             self.maxpool3 = MaxBlurPool2d(kernel_size=2)    
         else:
             self.maxpool3 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv4 = unetConv2(filters[2], filters[3], self.is_batchnorm, ks=self.kernel_size, act=config["activation"])
+        self.conv4 = unetConv2(filters[2], filters[3], self.is_batchnorm, ks=self.kernel_size)
         if self.useMaxBPool:
             self.maxpool4 = MaxBlurPool2d(kernel_size=2)
         else:
             self.maxpool4 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv5 = unetConv2(filters[3], filters[4], self.is_batchnorm, ks=self.kernel_size, act=config["activation"])
+        self.conv5 = unetConv2(filters[3], filters[4], self.is_batchnorm, ks=self.kernel_size)
 
         self.samMaxPool = MaxBlurPool2d(kernel_size=2)
 
@@ -328,14 +320,7 @@ class UNet_3Plus(nn.Module):
         h5 = self.maxpool4(h4)
         hd5 = self.conv5(h5)  # h5->512*16*16
 
-        # save Encoding - 
-        #torch.save(h1, "1-h1.pt")
-        #torch.save(h2, "2-h2.pt")
-        #torch.save(h3, "3-h3.pt")
-        #torch.save(h4, "4-h4.pt")
-        #torch.save(hd5, "5-hd5.pt")
         #return h1, h2, h3, h4, hd5
-        #torch.save(SAM_Enc, "6-SAM_Enc.pt")
 
         #print("h1", h1.shape)
         #print("h2", h2.shape)
@@ -343,36 +328,31 @@ class UNet_3Plus(nn.Module):
         #print("h4", h4.shape)
         #print("hd5", hd5.shape)
         #print("SAM_Enc", SAM_Enc.shape)
-        if self.samGuided:
-            samcd = self.samMaxPool(SAM_Enc)
-            samcd = self.samMaxPool(samcd)
-            #print("SAM_cd", samcd.shape)
-            # concat shapes of 1, 256, 16, 16 with 1, 256, 64, 64
-            combined = torch.cat((hd5, samcd), 1)
-            #print("Combined=",combined.shape)
-            #torch.save(combined, "7-combined.pt")
 
-            gatingWeights = self.squeeze_excite_h5(combined)
-            #print("GatingWeights=",gatingWeights.shape)
-            #torch.save(gatingWeights, "8-gatingWeights.pt")
+        samcd = self.samMaxPool(SAM_Enc)
+        samcd = self.samMaxPool(samcd)
+        #print("SAM_cd", samcd.shape)
+        # concat shapes of 1, 256, 16, 16 with 1, 256, 64, 64
+        combined = torch.cat((hd5, samcd), 1)
+        #print("Combined=",combined.shape)
 
-            gatedFeatures = gatingWeights * hd5
-            #print("GatedFeatures=",gatedFeatures.shape)
-            #torch.save(gatedFeatures, "9-gatedFeatures.pt")
+        gatingWeights = self.squeeze_excite_h5(combined)
+        #print("GatingWeights=",gatingWeights.shape)
 
-            batch_size, channels, height, width = gatedFeatures.shape
-            gated_unet_features_flat = gatedFeatures.view(batch_size, channels, -1).permute(0, 2, 1)
-            unet_features_flat = hd5.view(batch_size, channels, -1).permute(0, 2, 1)
+        gatedFeatures = gatingWeights * hd5
+        #print("GatedFeatures=",gatedFeatures.shape)
 
-            # Apply cross-attention
-            attention_output, _ = self.cross_attention_h5(query=gated_unet_features_flat, key=unet_features_flat, value=unet_features_flat)
-            attention_output = attention_output.permute(0, 2, 1).view(batch_size, channels, height, width)
+        batch_size, channels, height, width = gatedFeatures.shape
+        gated_unet_features_flat = gatedFeatures.view(batch_size, channels, -1).permute(0, 2, 1)
+        unet_features_flat = gatedFeatures.view(batch_size, channels, -1).permute(0, 2, 1)
 
-            #print("AttentionOutput=",attention_output.shape)
-            #torch.save(attention_output, "10-crossAttention.pt")
+        # Apply cross-attention
+        attention_output, _ = self.cross_attention_h5(query=gated_unet_features_flat, key=unet_features_flat, value=unet_features_flat)
+        attention_output = attention_output.permute(0, 2, 1).view(batch_size, channels, height, width)
 
-            hd5 = attention_output
+        #print("AttentionOutput=",attention_output.shape)
 
+        hd5 = attention_output
         
 
         # dropout

@@ -8,6 +8,7 @@ import os
 import cv2
 from auxilary.utils import *
 from networkModules.modelUnet3p import UNet_3Plus
+from networkModules.modelUnet3p_old import UNet_3Plus as UNet_3Plus_old
 from datetime import datetime
 from sklearn.metrics import average_precision_score, jaccard_score
 import json
@@ -21,7 +22,7 @@ def arg_init():
     parser.add_argument('--expt_dir', type=str, default='none', help='Path to the experiment directory.')
     return parser.parse_args()
 
-def make_preRunNecessities(expt_dir):
+def make_preRunNecessities(expt_dir, plotInference = False):
     # Read config.json file
     print("PreRun: Reading config file")
     
@@ -30,6 +31,10 @@ def make_preRunNecessities(expt_dir):
     with open(expt_dir + "config.json") as f:
         config = json.load(f)   
         #print(config)
+
+    if plotInference:
+        # Set the experiment directory
+        config['expt_dir'] = expt_dir
     
     # Create the required directories
     print("PreRun: Creating required directories")
@@ -49,7 +54,7 @@ def calculate_class_weights(targets, num_classes):
 
 
     
-def runInference(data, model, device, config, img_type, saveImages = False):
+def runInference(data, model, device, config, img_type, saveImages = False, retunAvg = True):
     accList = []
     count= 0
     mAPs = []
@@ -138,7 +143,10 @@ def runInference(data, model, device, config, img_type, saveImages = False):
             rslt = rslt.squeeze()
             rslt_color = result_recolor(rslt.cpu().detach().numpy(), config)
             cv2.imwrite(config['expt_dir']+'inference/'+img_type+'/'+str(i)+'_'+str(test_acc.item()/(wid*hit))[:5]+'_'+'predict.png',rslt_color)
-    return np.average(accList), np.average(mAPs), np.average(dices), np.average(mious), np.average(aji), np.average(losses), np.average(pqs)
+    if retunAvg:
+        return np.average(accList), np.average(mAPs), np.average(dices), np.average(mious), np.average(aji), np.average(losses), np.average(pqs)
+    else:
+        return accList, mAPs, dices, mious, aji, losses, pqs
 
 
 '''
@@ -148,13 +156,13 @@ def runInference(data, model, device, config, img_type, saveImages = False):
     4. save result
 '''
 
-def main(expt_dir, saveImages = True):
+def main(expt_dir, saveImages = True, oldModel = False, retunAvg = True, plotInference = False):
     # Load Config
     
 
     
     # run preRun
-    config = make_preRunNecessities(expt_dir)
+    config = make_preRunNecessities(expt_dir, plotInference)
 
     # set logging
     logging.basicConfig(filename=config["log"] + "Test.log", filemode='a', 
@@ -178,7 +186,10 @@ def main(expt_dir, saveImages = True):
     logging.info("Weight Path: " + weight_path)
     
     # set model
-    model = UNet_3Plus(config)
+    if not oldModel:
+        model = UNet_3Plus(config)
+    else:
+        model = UNet_3Plus_old(config)
 
     # Start inference
     logging.info("Starting Inference")
@@ -204,7 +215,7 @@ def main(expt_dir, saveImages = True):
         logging.info("Loading dataset")
         dataset = nucleiTestDataset(path, config)
         data = DataLoader(dataset,batch_size=1)
-        acc, mAP, mdice, miou, aji, meanloss, mpq = runInference(data, model, device, config, img_type, saveImages)
+        acc, mAP, mdice, miou, aji, meanloss, mpq = runInference(data, model, device, config, img_type, saveImages, retunAvg)
         f.write(f"{expt_dir},{img_type},{np.average(acc)} \n")
         print(f"Testing Accuracy -{expt_dir}-{img_type}- {acc} \n")
         print(f"Testing mAP -{expt_dir}-{img_type}- {mAP} \n")
@@ -232,4 +243,10 @@ if __name__ == '__main__':
         print("Please specify experiment directory")
         sys.exit(1)
 
-    data = main(args.expt_dir, saveImages = True)
+    oldExp = ["/mnt/BishalFiles/SamGuided/saves/nuinsseg_noSAM/", "/mnt/BishalFiles/SamGuided/saves/conic_noSAM/"]
+    if args.expt_dir in oldExp:
+        oldModel = True
+    else:
+        oldModel = False
+
+    data = main(args.expt_dir, saveImages = True, oldModel = oldModel)

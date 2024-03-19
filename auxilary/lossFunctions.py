@@ -795,7 +795,7 @@ class focalDiceLoss(nn.Module):
         # Dice Loss
         intersection = (prediction * target).sum(dim=(0, 2, 3))
         union = prediction.sum(dim=(0, 2, 3)) + target.sum(dim=(0, 2, 3)) - intersection
-        dice_loss = 1 - (intersection + 1e-6) / (union + 1e-6)
+        dice_loss = 1 - (2 * intersection + 1e-6) / (union + 1e-6)
 
         if self.class_weights is not None:
             dice_loss = dice_loss * self.class_weights
