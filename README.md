@@ -29,7 +29,7 @@
 
 <div align="center">
   <h3> Quantitative Performance Comparison </h3>
-  <img src="docs/static/images/quantitative-miccai.png" alt="Performance Comparison Table" width="400"/>
+  <img src="docs/static/images/quantitative-miccai.png" alt="Performance Comparison Table" width="600"/>
 </div>
 
 ***
